@@ -1,0 +1,278 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "../components/iota/styles.css";
+
+@source "../components";
+@source "../app";
+@source "../lib";
+
+/* The iOTA app's helpers, kept for the components copied from it. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.thin-scrollbar::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--fill);
+  border-radius: 9999px;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  animation: blink 1s step-end infinite;
+}
+@keyframes march-dash {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+.upload-btn:hover .marching rect {
+  animation: march-dash 0.7s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 60s linear infinite;
+}
+a:hover > .marquee {
+  animation-play-state: paused;
+}
+.export-panel {
+  background: var(--menu-bg);
+  color: var(--text-1);
+  border: 1px solid var(--menu-border);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.05),
+    0 8px 24px -6px rgb(0 0 0 / 0.14);
+}
+.menu-sep {
+  background: var(--menu-border);
+}
+.menu-muted {
+  color: var(--muted-fg);
+}
+.menu-row {
+  transition: background-color 80ms ease;
+}
+.menu-row:not([data-disabled]):hover,
+.menu-row.is-open {
+  background: var(--fill);
+}
+.chat-card {
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 10px 30px -10px rgb(0 0 0 / 0.12),
+    0 30px 60px -30px rgb(0 0 0 / 0.12);
+}
+.dot-grid {
+  background-image: radial-gradient(var(--fill) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Canvas. The float is a compositor-only keyframe, so it keeps moving smoothly while React is busy. */
+.canvas-viewport {
+  cursor: grab;
+}
+.canvas-viewport[data-dragging] {
+  cursor: grabbing;
+}
+.canvas-viewport[data-dragging] .canvas-hit {
+  pointer-events: none;
+}
+@keyframes canvas-float {
+  from {
+    transform: translate3d(calc(var(--fx) * -1), calc(var(--fy) * -1), 0);
+  }
+  to {
+    transform: translate3d(var(--fx), var(--fy), 0);
+  }
+}
+.canvas-float {
+  position: relative;
+  animation: canvas-float var(--ft) ease-in-out var(--fd) infinite alternate;
+}
+.canvas-node {
+  transition: opacity 280ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.canvas-node[data-hovered] .canvas-float,
+.canvas-node[data-selected] .canvas-float {
+  animation-play-state: paused;
+}
+/* Off-screen nodes don't float, and resting demos hold still: only the selected one runs. */
+.canvas-node:not([data-awake]) .canvas-float {
+  animation: none;
+}
+.canvas-node:not([data-selected]) [data-demo] *,
+.canvas-node:not([data-selected]) [data-demo] *::before,
+.canvas-node:not([data-selected]) [data-demo] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+.canvas-surface {
+  transition: box-shadow 200ms ease;
+}
+.canvas-surface:not(.flex) {
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 12px 28px -18px rgb(0 0 0 / 0.16);
+}
+.canvas-node[data-selected] {
+  z-index: 5;
+}
+/* Selection box. Every size divides by --z, so it reads the same at any canvas zoom. */
+.canvas-selection-line {
+  position: absolute;
+  inset: calc(-4px / var(--z, 1));
+  border: calc(1.5px / var(--z, 1)) solid var(--brand);
+}
+.canvas-handle {
+  position: absolute;
+  width: calc(8px / var(--z, 1));
+  height: calc(8px / var(--z, 1));
+  background: #fff;
+  border: calc(1.5px / var(--z, 1)) solid var(--brand);
+  translate: -50% -50%;
+}
+.canvas-handle[data-corner="tl"] {
+  left: calc(-4px / var(--z, 1));
+  top: calc(-4px / var(--z, 1));
+}
+.canvas-handle[data-corner="tr"] {
+  left: calc(100% + 4px / var(--z, 1));
+  top: calc(-4px / var(--z, 1));
+}
+.canvas-handle[data-corner="bl"] {
+  left: calc(-4px / var(--z, 1));
+  top: calc(100% + 4px / var(--z, 1));
+}
+.canvas-handle[data-corner="br"] {
+  left: calc(100% + 4px / var(--z, 1));
+  top: calc(100% + 4px / var(--z, 1));
+}
+.canvas-size {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 11px / var(--z, 1));
+  translate: -50% 0;
+  transform-origin: top center;
+  scale: calc(1 / var(--z, 1));
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--brand);
+  color: var(--brand-foreground);
+  font: 500 11px/14px var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+@keyframes canvas-select {
+  from {
+    opacity: 0;
+    scale: 1.015;
+  }
+}
+.canvas-selection {
+  animation: canvas-select 160ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+@keyframes canvas-size-in {
+  from {
+    opacity: 0;
+    translate: -50% -4px;
+  }
+}
+.canvas-size {
+  animation: canvas-size-in 200ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+/* Selecting a component plays its rows and lists in, once. */
+@media (prefers-reduced-motion: no-preference) {
+  .canvas-node[data-selected] :is([data-slot="item"], [data-slot="table-row"], [data-slot="data-list-item"], [data-slot="timeline-row"]) {
+    animation: iota-rise 260ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  .canvas-node[data-selected] :is([data-slot="item"], [data-slot="table-row"], [data-slot="data-list-item"]):nth-child(2) { animation-delay: 40ms; }
+  .canvas-node[data-selected] :is([data-slot="item"], [data-slot="table-row"], [data-slot="data-list-item"]):nth-child(3) { animation-delay: 80ms; }
+  .canvas-node[data-selected] :is([data-slot="item"], [data-slot="table-row"], [data-slot="data-list-item"]):nth-child(4) { animation-delay: 120ms; }
+  .canvas-node[data-selected] :is([data-slot="item"], [data-slot="table-row"], [data-slot="data-list-item"]):nth-child(n + 5) { animation-delay: 160ms; }
+}
+.canvas-caption {
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+.canvas-node[data-hovered] .canvas-caption,
+.canvas-node:has(.canvas-hit:focus-visible) .canvas-caption {
+  opacity: 1;
+}
+.canvas-node[data-selected]:not([data-hovered]) .canvas-caption {
+  opacity: 0;
+}
+.canvas-viewport[data-focused] .canvas-node:not([data-selected], [data-sibling]),
+.canvas-viewport[data-dim-all] .canvas-node {
+  opacity: 0.38;
+}
+/* Hover wins over selection: the hovered node is the only one at full strength. */
+.canvas-viewport[data-hovering]:not([data-dragging]) .canvas-node:not([data-hovered]) {
+  opacity: 0.38;
+}
+.canvas-viewport[data-hovering] .canvas-node[data-hovered] {
+  opacity: 1;
+  z-index: 6;
+}
+.canvas-surface[data-live] {
+  cursor: auto;
+}
+.canvas-hit {
+  cursor: pointer;
+}
+.canvas-viewport[data-dragging] .canvas-hit {
+  cursor: grabbing;
+}
+.canvas-hit:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+}
+@keyframes canvas-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+}
+.canvas-enter {
+  animation: canvas-enter 480ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+.canvas-tool {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  color: var(--muted-fg);
+  transition:
+    background-color 120ms ease,
+    color 120ms ease,
+    scale 120ms ease;
+}
+.canvas-tool:active {
+  scale: 0.94;
+}
+@media (hover: hover) {
+  .canvas-tool:hover {
+    background: var(--panel);
+    color: var(--text-1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .canvas-float,
+  .canvas-enter {
+    animation: none;
+  }
+}

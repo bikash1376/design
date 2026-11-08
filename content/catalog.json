@@ -1,0 +1,457 @@
+[
+ {
+  "slug": "activity",
+  "title": "Activity",
+  "group": "AI",
+  "description": "What the agent is doing now, with the first-wait loader.",
+  "source": "quartz"
+ },
+ {
+  "slug": "alert",
+  "title": "Alert",
+  "group": "Feedback",
+  "description": "A message about the current view, inline or across the page.",
+  "source": "quartz"
+ },
+ {
+  "slug": "attachment",
+  "title": "Attachment",
+  "group": "Media and charts",
+  "description": "A file in a form, prompt or message, with drop zone and image tile.",
+  "source": "quartz"
+ },
+ {
+  "slug": "avatar",
+  "title": "Avatar",
+  "group": "Display",
+  "description": "A person, agent or source icon, alone or grouped.",
+  "source": "quartz"
+ },
+ {
+  "slug": "badge",
+  "title": "Badge",
+  "group": "Display",
+  "description": "A static label for a count, category or kind, shown as a tinted word.",
+  "source": "quartz"
+ },
+ {
+  "slug": "breadcrumb",
+  "title": "Breadcrumb",
+  "group": "Navigation",
+  "description": "Where the page sits.",
+  "source": "quartz"
+ },
+ {
+  "slug": "button",
+  "title": "Button",
+  "group": "Actions",
+  "description": "Starts an action now. States: pressed and pending, which keeps the label.",
+  "source": "quartz"
+ },
+ {
+  "slug": "card",
+  "title": "Card",
+  "group": "Display",
+  "description": "A white working surface for one topic, optionally collapsible.",
+  "source": "quartz"
+ },
+ {
+  "slug": "chart",
+  "title": "Chart",
+  "group": "Media and charts",
+  "description": "Line, bar, sparkline or status buckets, with frame states, legend, tooltip and data table built in.",
+  "source": "quartz"
+ },
+ {
+  "slug": "checkbox",
+  "title": "Checkbox",
+  "group": "Selection",
+  "description": "One option on or off, with a mixed state.",
+  "source": "quartz"
+ },
+ {
+  "slug": "collapsible",
+  "title": "Collapsible",
+  "group": "Layout",
+  "description": "Shows and hides one region, or a group of them.",
+  "source": "quartz"
+ },
+ {
+  "slug": "combobox",
+  "title": "Combobox",
+  "group": "Inputs",
+  "description": "A searchable choice, single, multiple or creatable.",
+  "source": "quartz"
+ },
+ {
+  "slug": "command",
+  "title": "Command",
+  "group": "Overlays",
+  "description": "A searchable command list, the core of the command palette.",
+  "source": "quartz"
+ },
+ {
+  "slug": "conversation",
+  "title": "Conversation",
+  "group": "AI",
+  "description": "Keeps a streaming thread pinned to the bottom until the person scrolls.",
+  "source": "quartz"
+ },
+ {
+  "slug": "copy-button",
+  "title": "Copy button",
+  "group": "Actions",
+  "description": "Copies a value and confirms in place.",
+  "source": "quartz"
+ },
+ {
+  "slug": "data-grid",
+  "title": "Data grid",
+  "group": "Data",
+  "description": "A table with spreadsheet behavior: cell focus, editing and paste.",
+  "source": "quartz"
+ },
+ {
+  "slug": "data-list",
+  "title": "Data list",
+  "group": "Display",
+  "description": "Label and value pairs for a detail view.",
+  "source": "quartz"
+ },
+ {
+  "slug": "date-picker",
+  "title": "Date picker",
+  "group": "Inputs",
+  "description": "A date, range, date-time or time, with Calendar as its popup part.",
+  "source": "quartz"
+ },
+ {
+  "slug": "dialog",
+  "title": "Dialog",
+  "group": "Overlays",
+  "description": "Modal work, with alert and typed-confirm variants.",
+  "source": "quartz"
+ },
+ {
+  "slug": "dropdown-menu",
+  "title": "Dropdown menu",
+  "group": "Overlays",
+  "description": "Actions from a trigger or a right click.",
+  "source": "quartz"
+ },
+ {
+  "slug": "empty-state",
+  "title": "Empty state",
+  "group": "Feedback",
+  "description": "A region with nothing to show, that failed, or that the person cannot see.",
+  "source": "quartz"
+ },
+ {
+  "slug": "field",
+  "title": "Field",
+  "group": "Inputs",
+  "description": "Label, control, hint and error as one unit, plus the Form part.",
+  "source": "quartz"
+ },
+ {
+  "slug": "filter-bar",
+  "title": "Filter bar",
+  "group": "Data",
+  "description": "Search plus filter chips and clear-all.",
+  "source": "quartz"
+ },
+ {
+  "slug": "input",
+  "title": "Input",
+  "group": "Inputs",
+  "description": "One line of text. Variants: text, password, secret, copy, search, number and OTP, with prefix and suffix slots.",
+  "source": "quartz"
+ },
+ {
+  "slug": "item",
+  "title": "Item",
+  "group": "Display",
+  "description": "The list row: media, title, meta, status and actions.",
+  "source": "quartz"
+ },
+ {
+  "slug": "json-view",
+  "title": "JSON view",
+  "group": "Code",
+  "description": "Foldable structured output.",
+  "source": "quartz"
+ },
+ {
+  "slug": "kbd",
+  "title": "Kbd",
+  "group": "Display",
+  "description": "A key or a shortcut.",
+  "source": "quartz"
+ },
+ {
+  "slug": "log-viewer",
+  "title": "Log viewer",
+  "group": "Code",
+  "description": "Streaming lines with levels, search and follow.",
+  "source": "quartz"
+ },
+ {
+  "slug": "message",
+  "title": "Message",
+  "group": "AI",
+  "description": "One turn from the person or the agent, plus dividers.",
+  "source": "quartz"
+ },
+ {
+  "slug": "pagination",
+  "title": "Pagination",
+  "group": "Navigation",
+  "description": "Moves through pages of results.",
+  "source": "quartz"
+ },
+ {
+  "slug": "panel",
+  "title": "Panel",
+  "group": "Display",
+  "description": "A grey widget for an overview or settings screen: header on the grey, content in a white body.",
+  "source": "quartz"
+ },
+ {
+  "slug": "popover",
+  "title": "Popover",
+  "group": "Overlays",
+  "description": "Anchored rich content, including the info toggletip and the hover preview.",
+  "source": "quartz"
+ },
+ {
+  "slug": "progress",
+  "title": "Progress",
+  "group": "Feedback",
+  "description": "Bar, ring, steps or meter.",
+  "source": "quartz"
+ },
+ {
+  "slug": "prompt-input",
+  "title": "Prompt input",
+  "group": "AI",
+  "description": "The composer editor with mentions, slash commands and voice.",
+  "source": "quartz"
+ },
+ {
+  "slug": "radio-group",
+  "title": "Radio group",
+  "group": "Selection",
+  "description": "One choice from a short visible list.",
+  "source": "quartz"
+ },
+ {
+  "slug": "reasoning",
+  "title": "Reasoning",
+  "group": "AI",
+  "description": "The model's thinking, open while it streams and folded when done.",
+  "source": "quartz"
+ },
+ {
+  "slug": "relative-time",
+  "title": "Relative time",
+  "group": "Display",
+  "description": "\"3m ago\", with the exact time on hover and focus.",
+  "source": "quartz"
+ },
+ {
+  "slug": "response",
+  "title": "Response",
+  "group": "AI",
+  "description": "Markdown that renders as it streams.",
+  "source": "quartz"
+ },
+ {
+  "slug": "segmented-control",
+  "title": "Segmented control",
+  "group": "Selection",
+  "description": "Two to five views, single or multiple.",
+  "source": "quartz"
+ },
+ {
+  "slug": "select",
+  "title": "Select",
+  "group": "Selection",
+  "description": "One choice from a popup list, or the native select.",
+  "source": "quartz"
+ },
+ {
+  "slug": "sheet",
+  "title": "Sheet",
+  "group": "Overlays",
+  "description": "A panel from an edge, modal or docked.",
+  "source": "quartz"
+ },
+ {
+  "slug": "skeleton",
+  "title": "Skeleton",
+  "group": "Feedback",
+  "description": "Holds the shape of loading content.",
+  "source": "quartz"
+ },
+ {
+  "slug": "slider",
+  "title": "Slider",
+  "group": "Selection",
+  "description": "A value or range on a track.",
+  "source": "quartz"
+ },
+ {
+  "slug": "stat",
+  "title": "Stat",
+  "group": "Display",
+  "description": "A plain numeral with its label, delta and trend.",
+  "source": "quartz"
+ },
+ {
+  "slug": "status",
+  "title": "Status",
+  "group": "Display",
+  "description": "Idle, queued, running, waiting, ok, warn and fail, as a mark or a word.",
+  "source": "quartz"
+ },
+ {
+  "slug": "switch",
+  "title": "Switch",
+  "group": "Selection",
+  "description": "A setting that applies immediately.",
+  "source": "quartz"
+ },
+ {
+  "slug": "table",
+  "title": "Table",
+  "group": "Data",
+  "description": "Rows and columns with sort, selection, row actions and virtualization.",
+  "source": "quartz"
+ },
+ {
+  "slug": "tabs",
+  "title": "Tabs",
+  "group": "Navigation",
+  "description": "Panels of one view, with closable and reorderable document tabs.",
+  "source": "quartz"
+ },
+ {
+  "slug": "textarea",
+  "title": "Textarea",
+  "group": "Inputs",
+  "description": "Several lines of text that grow.",
+  "source": "quartz"
+ },
+ {
+  "slug": "timeline",
+  "title": "Timeline",
+  "group": "Data",
+  "description": "Shows when each step of a run started and how long it took, with the slow and failed ones marked.",
+  "source": "quartz"
+ },
+ {
+  "slug": "toast",
+  "title": "Toast",
+  "group": "Feedback",
+  "description": "Confirms an action or reports a background event, then leaves.",
+  "source": "quartz"
+ },
+ {
+  "slug": "tool-call",
+  "title": "Tool call",
+  "group": "AI",
+  "description": "One call with its name, arguments, status, duration and output.",
+  "source": "quartz"
+ },
+ {
+  "slug": "tooltip",
+  "title": "Tooltip",
+  "group": "Overlays",
+  "description": "Names an icon button or shows a shortcut; never holds anything essential.",
+  "source": "quartz"
+ },
+ {
+  "slug": "truncate",
+  "title": "Truncate",
+  "group": "Display",
+  "description": "Long IDs and text cut at the middle or the end, with the full value reachable.",
+  "source": "quartz"
+ },
+ {
+  "slug": "page-header",
+  "title": "Page header",
+  "group": "Layout",
+  "description": "Title, description, stats and actions at the top of a page.",
+  "source": "quartz"
+ },
+ {
+  "slug": "color-picker",
+  "title": "Color picker",
+  "group": "Controls",
+  "description": "A swatch that opens saturation, hue, hex, swatches and the eyedropper in a shadcn Popover.",
+  "source": "iota"
+ },
+ {
+  "slug": "control-row",
+  "title": "Control row",
+  "group": "Controls",
+  "description": "A labelled panel row matching the sliders, for a swatch, toggle or select.",
+  "source": "iota"
+ },
+ {
+  "slug": "origin-wave",
+  "title": "Origin wave",
+  "group": "Feedback",
+  "description": "A dot grid that ripples out from its origin, iOTA's spinner.",
+  "source": "iota"
+ },
+ {
+  "slug": "pixel-title",
+  "title": "Pixel title",
+  "group": "Brand",
+  "description": "The wordmark types itself out, then letters keep morphing between Geist Pixel variants.",
+  "source": "iota"
+ },
+ {
+  "slug": "scales",
+  "title": "Scales",
+  "group": "Layout",
+  "description": "A repeating line pattern for quiet texture behind a panel.",
+  "source": "iota"
+ },
+ {
+  "slug": "reveal",
+  "title": "Reveal",
+  "group": "Motion",
+  "description": "Fades a block up once it scrolls into view.",
+  "source": "iota"
+ },
+ {
+  "slug": "faq",
+  "title": "FAQ",
+  "group": "Layout",
+  "description": "Single-open questions on shadcn Accordion, the open one on a soft panel.",
+  "source": "iota"
+ },
+ {
+  "slug": "chip",
+  "title": "Chip",
+  "group": "Display",
+  "description": "An interactive token: filter toggle, removable value or menu trigger.",
+  "source": "quartz"
+ },
+ {
+  "slug": "code-block",
+  "title": "Code block",
+  "group": "Code",
+  "description": "Highlighted code, one-line commands and inline code, with copy.",
+  "source": "quartz"
+ },
+ {
+  "slug": "text-effects",
+  "title": "Text effects",
+  "group": "Motion",
+  "description": "Text that arrives or changes with motion: a cycling word, a typewriter line and a word-by-word reveal.",
+  "source": "iota"
+ }
+]

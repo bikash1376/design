@@ -1,0 +1,122 @@
+.iota {
+  min-height: 100dvh;
+  background: var(--surface-canvas);
+  color: var(--text-1);
+  font: var(--type-body);
+  font-variation-settings: var(--width-normal);
+  letter-spacing: var(--tracking-text);
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+}
+@layer base {
+  .iota :where(*, ::before, ::after) { box-sizing: border-box; border: 0 solid var(--line-row); margin: 0; padding: 0; }
+  .iota :where(h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd, pre) { margin: 0; font: inherit; }
+  .iota :where(ul, ol) { list-style: none; }
+  .iota :where(a) { color: inherit; text-decoration: inherit; }
+  .iota :where(button, input, select, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background: transparent; }
+  .iota :where(button, [role="button"]) { cursor: pointer; }
+  .iota :where(button:disabled, [aria-disabled="true"]) { cursor: not-allowed; }
+  .iota :where(img, video, canvas, svg:not(.overflow-visible, [overflow="visible"])) { display: block; max-width: 100%; }
+  .iota :where(svg.overflow-visible, svg[overflow="visible"]) { display: block; }
+  .iota :where(table) { border-collapse: collapse; }
+  .iota :where(code, kbd, samp, pre) { font-family: var(--font-mono); }
+  .iota :where(td, th, time, data, output) { font-variant-numeric: tabular-nums; }
+  .iota :where(a, button, summary, input, select, textarea, label, [role="button"], [role="tab"], [role="menuitem"], [role="option"], [role="switch"], [role="checkbox"], [role="radio"]) {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, box-shadow, opacity;
+    transition-duration: var(--dur-fast);
+    transition-timing-function: var(--ease-step);
+  }
+  .iota :where(a, button, [role="button"]):where(:active) { transition-duration: var(--dur-press); }
+}
+.iota :where([data-prose]) a:where(:not([data-slot])) {
+  text-decoration: underline 1px var(--text-3);
+  text-underline-offset: 4px;
+  border-radius: var(--radius-soft);
+  padding-inline: 2px;
+  margin-inline: -2px;
+}
+@media (hover: hover) { .iota :where([data-prose]) a:where(:not([data-slot])):hover { text-decoration-color: var(--ink); color: var(--text-1); } }
+.iota ::selection { background: var(--hue-3-field); color: var(--text-on-field); }
+.iota :where(*, ::before, ::after) { outline-color: var(--border-focus); }
+.iota :where(*):is(:focus-visible, [data-force-focus-visible]) { outline: var(--line-focus) solid var(--border-focus); outline-offset: var(--focus-offset); }
+.iota :where([data-control]):is(:focus-visible, [data-force-focus-visible]) { outline: none; }
+@media (pointer: coarse) {
+  .iota input:not([type="checkbox"], [type="radio"], [type="range"], [type="button"], [type="submit"], [type="file"], [type="color"]),
+  .iota textarea,
+  .iota select { font-size: max(16px, 1em); }
+}
+
+/* Anything you can press shows it, even inside a surface with its own cursor. */
+.iota :where(button, a[href], summary, select, label:has(input), [role="button"], [role="tab"], [role="switch"], [role="checkbox"], [role="radio"], [role="option"], [role="menuitem"], [role="menuitemcheckbox"], [role="menuitemradio"], [data-slot="chip"]):not(:disabled, [data-disabled], [aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+/* Small motions on what changes state. Transform and opacity only. */
+@keyframes iota-pop {
+  from { opacity: 0; scale: 0.6; }
+}
+@keyframes iota-rise {
+  from { opacity: 0; translate: 0 6px; }
+}
+@keyframes iota-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes iota-shimmer {
+  to { translate: 100% 0; }
+}
+@keyframes iota-fade {
+  from { opacity: 0; }
+}
+@keyframes iota-grow {
+  from { transform: scaleY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .iota [data-slot="skeleton"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    translate: -100% 0;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--paper) 70%, transparent), transparent);
+    animation: iota-shimmer 1500ms ease-in-out infinite;
+  }
+  .iota [data-slot="checkbox-indicator"],
+  .iota [data-slot="radio-group-indicator"] {
+    animation: iota-pop 160ms var(--ease-step);
+  }
+  .iota [data-slot="tabs-content"] {
+    animation: iota-rise 200ms var(--ease-step);
+  }
+  .iota [data-slot="switch-thumb"] {
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  /* The line traces itself, the area follows, bars grow, and new data glides. */
+  .iota [data-slot="line-chart-line"][data-draw] {
+    stroke-dasharray: 1;
+    animation: iota-draw 1100ms cubic-bezier(0.77, 0, 0.175, 1) 250ms both;
+  }
+  .iota [data-slot="line-chart-area"] {
+    animation: iota-fade 500ms ease 900ms both;
+  }
+  .iota :is([data-slot="line-chart-line"], [data-slot="line-chart-area"]) {
+    transition: d 600ms var(--ease-step);
+  }
+  .iota [data-slot="bar-chart-bar"] {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: iota-grow 520ms var(--ease-step) 200ms both;
+  }
+  .iota [data-slot="collapsible-content"],
+  .iota [data-slot="reasoning-content"] {
+    height: var(--collapsible-panel-height);
+    overflow: hidden;
+    transition: height 220ms var(--ease-step), opacity 180ms var(--ease-step);
+  }
+  .iota :is([data-slot="collapsible-content"], [data-slot="reasoning-content"]):is([data-starting-style], [data-ending-style]) {
+    height: 0;
+    opacity: 0;
+  }
+}
