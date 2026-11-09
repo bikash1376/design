@@ -53,12 +53,12 @@ export const getFoundationDoc = (slug: string) => {
   return r ? parseDoc(r) : null;
 };
 export const getSkillDoc = (name: string) => {
-  const r = read(`skills/${name}/SKILL.md`);
-  return r ? parseDoc(r) : null;
+  const f = path.join(process.cwd(), "skills", name, "SKILL.md");
+  return fs.existsSync(f) ? parseDoc(fs.readFileSync(f, "utf8")) : null;
 };
 
 export const foundationSlugs = () => fs.readdirSync(path.join(CONTENT, "foundations")).map((f) => f.replace(/\.md$/, ""));
-export const skillNames = () => fs.readdirSync(path.join(CONTENT, "skills"));
+export const skillNames = () => fs.readdirSync(path.join(process.cwd(), "skills"));
 
 export function foundationIndex() {
   return foundationSlugs().map((slug) => {

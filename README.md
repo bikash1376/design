@@ -34,8 +34,8 @@ Generated into `public/` by `scripts/build-endpoints.mjs`, which runs before `de
 - `components/iota`: the design system
 - `components/iota-app`: components from the iOTA app, wrapping shadcn primitives
 - `components/site`: this site's canvas and panels
-- `content`: docs and skills in Markdown
-- `skills`: generated copy of the skills with real URLs, for `npx skills add bikash1376/design`
+- `content`: component and foundation docs in Markdown
+- `skills`: the skills, for `npx skills add bikash1376/design`
 
 ## Credits
 

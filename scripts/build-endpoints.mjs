@@ -31,13 +31,13 @@ const catalog = JSON.parse(fs.readFileSync(path.join(CONTENT, "catalog.json"), "
   const docs = new Set(fs.readdirSync(path.join(CONTENT, "components")).map((f) => f.replace(/\.md$/, "")));
   for (const s of slugs) if (!docs.has(s)) problems.push(`catalog entry has no doc: ${s}`);
   for (const d of docs) if (!slugs.has(d)) problems.push(`doc is not in the catalog: ${d}`);
-  for (const f of walk(CONTENT).filter((x) => x.endsWith(".md"))) {
+  for (const f of [...walk(CONTENT), ...walk(path.join(ROOT, "skills"))].filter((x) => x.endsWith(".md"))) {
     for (const m of fs.readFileSync(f, "utf8").matchAll(/\/components\/([a-z-]+)\.md/g)) if (!slugs.has(m[1])) problems.push(`dead link to ${m[1]} in ${path.relative(CONTENT, f)}`);
   }
-  const skill = fs.readFileSync(path.join(CONTENT, "skills/iota/SKILL.md"), "utf8");
+  const skill = fs.readFileSync(path.join(ROOT, "skills/iota/SKILL.md"), "utf8");
   for (const s of slugs) if (!skill.includes(`/components/${s}.md`)) problems.push(`missing from the iota skill: ${s}`);
   // Nothing published may name the old source or a local address.
-  for (const f of [...walk(CONTENT), ...walk(path.join(ROOT, "components/iota")), ...walk(path.join(ROOT, "components/iota-app"))].filter((x) => /\.(md|mjs|tsx?|css|json)$/.test(x))) {
+  for (const f of [...walk(CONTENT), ...walk(path.join(ROOT, "skills")), ...walk(path.join(ROOT, "components/iota")), ...walk(path.join(ROOT, "components/iota-app"))].filter((x) => /\.(md|mjs|tsx?|css|json)$/.test(x))) {
     if (/qu[a]rtz|design[.]how|localhost:[3]000/i.test(fs.readFileSync(f, "utf8"))) problems.push(`banned mention in ${path.relative(ROOT, f)}`);
   }
   if (problems.length) throw new Error("Content check failed:\n" + problems.join("\n"));
@@ -48,7 +48,8 @@ for (const dir of ["components", "foundations"])
   for (const f of walk(path.join(CONTENT, dir))) put(`${dir}/${path.basename(f)}`, site(fs.readFileSync(f, "utf8")));
 
 // Skills
-const skillDirs = fs.readdirSync(path.join(CONTENT, "skills"));
+const SKILLS = path.join(ROOT, "skills");
+const skillDirs = fs.readdirSync(SKILLS);
 const describe = (md) => (md.match(/^description: (.+)$/m) || [])[1] || "";
 const tar = (entries) => {
   const blocks = [];
@@ -71,11 +72,10 @@ const tar = (entries) => {
   blocks.push(Buffer.alloc(1024));
   return zlib.gzipSync(Buffer.concat(blocks), { mtime: 0 });
 };
-fs.rmSync(path.join(ROOT, "skills"), { recursive: true, force: true });
 const agentIndex = [];
 const legacyIndex = [];
 for (const name of skillDirs) {
-  const dir = path.join(CONTENT, "skills", name);
+  const dir = path.join(SKILLS, name);
   const entries = walk(dir).map((f) => {
     const rel = path.relative(dir, f).replace(/\\/g, "/");
     const data = /\.(md|mjs|json|txt)$/.test(f) ? Buffer.from(site(fs.readFileSync(f, "utf8"))) : fs.readFileSync(f);
@@ -83,9 +83,6 @@ for (const name of skillDirs) {
   });
   for (const [rel, data] of entries) {
     put(`skills/${name}/${rel}`, data);
-    const repoCopy = path.join(ROOT, "skills", name, rel);
-    fs.mkdirSync(path.dirname(repoCopy), { recursive: true });
-    fs.writeFileSync(repoCopy, data);
     put(`.well-known/skills/${name}/${rel}`, data);
   }
   const md = entries.find(([r]) => r === "SKILL.md")[1].toString();
@@ -191,7 +188,7 @@ for (const c of catalog) {
   items.push(summary);
 }
 const themeFiles = ["tokens.css", "base.css", "styles.css", "lib/utils.ts", "lib/portal.ts", "THIRD_PARTY_NOTICES.md"].map((f) => path.join(ROOT, "components/iota", f));
-const skillMd = site(fs.readFileSync(path.join(CONTENT, "skills/iota/SKILL.md"), "utf8"));
+const skillMd = site(fs.readFileSync(path.join(ROOT, "skills/iota/SKILL.md"), "utf8"));
 put("r/theme.json", JSON.stringify({
   $schema: "https://ui.shadcn.com/schema/registry-item.json",
   name: "theme",
