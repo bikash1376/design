@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   title: { default: "iOTA: give your agent taste", template: "%s · iOTA" },
   description: "A design system your coding agent installs and follows: components, tokens and written rules.",
   icons: { icon: "/iota-icon.png" },
+  openGraph: {
+    type: "website",
+    siteName: "iOTA",
+    title: "iOTA: give your agent taste",
+    description: "A design system your coding agent installs and follows: components, tokens and written rules.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
