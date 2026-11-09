@@ -22,7 +22,7 @@ export function HumanDoc({ doc }: { doc: Doc }) {
   const tokens = (section("Tokens") ?? "").split(/,\s*/).map((t) => t.trim()).filter(Boolean);
   const values = tokenValues();
   const slug = doc.meta.human?.split("/").pop() ?? "";
-  const variants = doc.sections.find((x) => x.heading === "Variants")?.body;
+  const variants = doc.sections.find((x) => x.heading === "Variants")?.body.replace(/```[\s\S]*?```/g, "").trim();
   return (
     <div className="flex flex-col gap-4">
       <Heading title={doc.title} description={doc.description} />

@@ -14,6 +14,9 @@ human: {{SITE}}/components/pagination
 
 Moves through a long list one page at a time.
 
+## Look
+Pagination carries its own `--surface-page` background, so it reads on any surface.
+
 ## Use when
 - A list or table has more rows than one page shows and the person needs to move through them.
 - The total is known (numbered) or only a next cursor is (Previous and Next).

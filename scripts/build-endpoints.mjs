@@ -36,6 +36,22 @@ const catalog = JSON.parse(fs.readFileSync(path.join(CONTENT, "catalog.json"), "
   }
   const skill = fs.readFileSync(path.join(ROOT, "skills/iota/SKILL.md"), "utf8");
   for (const s of slugs) if (!skill.includes(`/components/${s}.md`)) problems.push(`missing from the iota skill: ${s}`);
+  // The skill's token list is closed, so a token it does not name is one an agent will refuse to use.
+  const internalToken = /^--(hue-|key-|ink-c|paper-c|grey-c|canvas-c|text-on-field-c|shadow-alpha|ring-thumb|button-|surface-disabled|code-(string|comment)-alpha|copy-code-|menu-)/;
+  for (const m of fs.readFileSync(path.join(ROOT, "components/iota/tokens.css"), "utf8").matchAll(/^\s*(--[\w-]+):/gm)) {
+    if (!internalToken.test(m[1]) && !skill.includes(m[1])) problems.push(`token missing from the iota skill: ${m[1]}`);
+  }
+  // And a token the docs name has to exist: a typo there renders as nothing, silently.
+  const cssText = ["tokens.css", "styles.css", "base.css"].map((f) => fs.readFileSync(path.join(ROOT, "components/iota", f), "utf8")).join("\n");
+  const codeText = walk(path.join(ROOT, "components/iota")).filter((f) => /\.tsx?$/.test(f)).map((f) => fs.readFileSync(f, "utf8")).join("\n");
+  const installerSets = /^--(font-geist-|font-pixel-|name$)/;
+  const docsToCheck = [...walk(CONTENT), ...walk(path.join(ROOT, "skills/iota")), ...walk(path.join(ROOT, "skills/iota-motion"))].filter((f) => f.endsWith(".md"));
+  for (const f of docsToCheck) {
+    for (const m of fs.readFileSync(f, "utf8").matchAll(/(?<![\w-])(--[a-z]\w*(?:-\w+)*)/g)) {
+      if (installerSets.test(m[1]) || /^--(base|preset|yes|skill|list|kind|out|run|bodies|overwrite|agent|help|force|dry|print|no-|next|tiny|version|port|all)/.test(m[1])) continue;
+      if (!new RegExp(`${m[1]}\\s*:`).test(cssText) && !codeText.includes(m[1])) problems.push(`unknown token ${m[1]} in ${path.relative(ROOT, f)}`);
+    }
+  }
   // Nothing published may name the old source or a local address.
   for (const f of [...walk(CONTENT), ...walk(path.join(ROOT, "skills")), ...walk(path.join(ROOT, "components/iota")), ...walk(path.join(ROOT, "components/iota-app"))].filter((x) => /\.(md|mjs|tsx?|css|json)$/.test(x))) {
     if (/qu[a]rtz|design[.]how|localhost:[3]000/i.test(fs.readFileSync(f, "utf8"))) problems.push(`banned mention in ${path.relative(ROOT, f)}`);

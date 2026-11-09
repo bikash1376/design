@@ -399,6 +399,7 @@
   --menu-border: #e4e4e7;
   --switch-off: #f1f1f3;
   --canvas-bg: #f2f2f2;
+  --canvas-line: #dadada;
   --message-bg: #f2f2f2;
   --canvas-dot: color-mix(in srgb, #0057fc 34%, transparent);
 }
@@ -419,6 +420,7 @@
   --menu-border: #2a2a31;
   --switch-off: #26262b;
   --canvas-bg: #101013;
+  --canvas-line: #26262b;
   --code-string: #4cc38a;
   --code-keyword: #6ea3ff;
   --code-tag: #4ec5d9;

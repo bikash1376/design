@@ -4,8 +4,10 @@ import {Menu as MenuPrimitive} from '@base-ui/react/menu';
 import {mergeProps} from '@base-ui/react/merge-props';
 import {useRender} from '@base-ui/react/use-render';
 import {cva, type VariantProps} from 'class-variance-authority';
-import {createContext, useContext, useMemo, useRef, type ComponentProps, type ReactNode, type RefObject} from 'react';
-import {Icon, ChevronDown} from '../icon';
+import {createContext, useContext, useEffect, useMemo, useRef, useState, type ComponentProps, type ReactNode, type RefObject} from 'react';
+import {AnimatePresence, motion, useReducedMotion} from 'motion/react';
+import {TextMorph} from 'torph/react';
+import {Icon, Checkmark, ChevronDown, Download} from '../icon';
 import {useIotaPortal} from '../lib/portal';
 import {cn, mergeClass, mergeRefs} from '../lib/utils';
 import {Button, type ButtonProps} from './button';
@@ -140,7 +142,98 @@ function ButtonGroupMenuSeparator({className, ...props}: MenuPrimitive.Separator
   return <MenuPrimitive.Separator data-slot="button-group-menu-separator" className={mergeClass('menu-separator', className)} {...props}/>;
 }
 
+type ExportFormat = {id: string; label: string};
+
+type ExportGroupProps = {
+  formats: readonly ExportFormat[];
+  defaultFormat?: string;
+  /** Runs the export. Resolve when it is done; resolve false or reject if it did not finish. */
+  onExport?: (format: string) => unknown | Promise<unknown>;
+  menuLabel?: string;
+  className?: string;
+};
+
+// A split export button. Picking a format runs it straight away and remembers it; the main half
+// repeats it. The download icon bobs through Exporting, then springs to a check on Exported.
+function ExportGroup({formats, defaultFormat, onExport, menuLabel = 'Export format', className}: ExportGroupProps) {
+  const reduce = useReducedMotion();
+  const [format, setFormat] = useState(defaultFormat ?? formats[0]?.id);
+  const [phase, setPhase] = useState<'idle' | 'busy' | 'done'>('idle');
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  const current = formats.find(f => f.id === format) ?? formats[0];
+
+  const run = async (id: string) => {
+    if (phase === 'busy') return;
+    clearTimeout(timer.current);
+    setFormat(id);
+    setPhase('busy');
+    let ok = true;
+    try {
+      ok = (await onExport?.(id)) !== false;
+    } catch {
+      ok = false;
+    }
+    if (!ok) { setPhase('idle'); return; }
+    setPhase('done');
+    timer.current = setTimeout(() => setPhase('idle'), 1600);
+  };
+
+  const label = phase === 'done' ? 'Exported' : phase === 'busy' ? 'Exporting' : `Export ${current?.label ?? ''}`.trim();
+  return <ButtonGroup data-slot="export-group" className={className}>
+    <Button data-phase={phase} aria-busy={phase === 'busy' || undefined} onClick={() => current && run(current.id)} className="overflow-hidden">
+      <motion.span
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 start-0 bg-white/20"
+        initial={false}
+        animate={{width: phase === 'done' ? '100%' : '0%', opacity: phase === 'done' ? [0.9, 0] : 1}}
+        transition={phase === 'done' ? {duration: 0.9, ease: 'easeOut'} : {duration: 0}}
+      />
+      <span aria-hidden className="relative grid size-4 place-items-center">
+        <AnimatePresence initial={false} mode="popLayout">
+          {phase === 'done'
+            ? <motion.span
+                key="check"
+                className="col-start-1 row-start-1 flex"
+                initial={{opacity: 0, scale: 0.6, rotate: -20}}
+                animate={{opacity: 1, scale: 1, rotate: 0}}
+                exit={{opacity: 0, scale: 0.6}}
+                transition={reduce ? {duration: 0} : {type: 'spring', stiffness: 520, damping: 30}}
+              ><Icon icon={Checkmark} size={16}/></motion.span>
+            : <motion.span
+                key="download"
+                className="col-start-1 row-start-1 flex"
+                initial={{opacity: 0, y: -6}}
+                animate={phase === 'busy' && !reduce ? {opacity: 1, y: [0, 2.5, 0]} : {opacity: 1, y: 0}}
+                exit={{opacity: 0, scale: 0.6, rotate: 14}}
+                transition={phase === 'busy' && !reduce ? {y: {duration: 0.9, repeat: Infinity, ease: 'easeInOut'}} : {duration: 0.2}}
+              ><Icon icon={Download} size={16}/></motion.span>}
+        </AnimatePresence>
+      </span>
+      <TextMorph duration={340} ease="cubic-bezier(0.19, 1, 0.22, 1)" className="relative whitespace-nowrap">{label}</TextMorph>
+    </Button>
+    <ButtonGroupMenu label={menuLabel}>
+      <MenuPrimitive.RadioGroup value={format}>
+        {formats.map(f => <MenuPrimitive.RadioItem
+          key={f.id}
+          value={f.id}
+          closeOnClick
+          data-slot="export-group-item"
+          onClick={() => run(f.id)}
+          className="menu-item justify-between gap-6"
+        >
+          {f.label}
+          <MenuPrimitive.RadioItemIndicator className="flex"><Icon icon={Checkmark} size={14}/></MenuPrimitive.RadioItemIndicator>
+        </MenuPrimitive.RadioItem>)}
+      </MenuPrimitive.RadioGroup>
+    </ButtonGroupMenu>
+  </ButtonGroup>;
+}
+
 export {
+  ExportGroup,
+  type ExportGroupProps,
+  type ExportFormat,
   ButtonGroup, ButtonGroupMenu, ButtonGroupMenuGroup, ButtonGroupMenuItem, ButtonGroupMenuSeparator, ButtonGroupSeparator, ButtonGroupText, buttonGroupVariants,
   type ButtonGroupProps, type ButtonGroupMenuProps, type ButtonGroupMenuItemProps,
 };

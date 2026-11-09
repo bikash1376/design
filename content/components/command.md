@@ -14,6 +14,9 @@ human: {{SITE}}/components/command
 
 Finds and runs any action by typing part of its name.
 
+## Look
+The search row shows focus as one line under it, so nothing gets clipped by a rounded frame.
+
 ## Use when
 - An app has more actions and items than its navigation shows: Cmd K for everything.
 - Picking one of many named things where typing is faster than scrolling: an agent, a workspace.

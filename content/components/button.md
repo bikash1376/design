@@ -20,7 +20,7 @@ Starts an action, like running an agent or saving a change.
 - **Ghost**: no surface until hover, for skipping or stepping aside.
 - **With icon**: an icon on the left of the label. Copy is this, and its label morphs when it confirms.
 - **Icon only**: the arrow on a send button is the model. It needs an aria-label.
-- **Group**: joined buttons, with an optional split menu.
+- **Group**: joined buttons, with a split menu. Picking a format runs Exporting, then Exported.
 - **Bulk actions**: a bar of actions for the rows a person has selected.
 
 The site shows the common ones. The full set, including `destructive` and `link`, is under Variants and states.
@@ -31,6 +31,7 @@ Every button in iOTA is this component.
 - Skins: `primary` (brand), `secondary`, `ghost`. `destructive` and `link` exist for confirmations and inline actions.
 - Icon only: `size="icon"`, `icon-xs`, `icon-sm` or `icon-lg`, with an `aria-label`. A send button is this with the send glyph.
 - Selected rows: `BulkActionBar` and `BulkAction` from `@/components/iota/ui/bulk-action-bar`.
+- Export: `ExportGroup` from `@/components/iota/ui/button-group` is a ready-made split button that takes `formats`, `defaultFormat` and `onExport`. Picking a format runs it and remembers it, the main half repeats it, and `onExport` resolving `false` returns it to rest without showing Exported.
 - Joined: wrap buttons in `ButtonGroup` from `@/components/iota/ui/button-group`; `ButtonGroupMenu` makes the split menu.
 
 ```tsx
@@ -41,6 +42,12 @@ Every button in iOTA is this component.
     <ButtonGroupMenuItem>Export as GIF</ButtonGroupMenuItem>
   </ButtonGroupMenu>
 </ButtonGroup>
+
+<ExportGroup
+  formats={[{id: 'gif', label: 'GIF'}, {id: 'svg', label: 'SVG'}]}
+  defaultFormat="gif"
+  onExport={format => exportFile(format)}
+/>
 ```
 
 ## Use when

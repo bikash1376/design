@@ -13,7 +13,7 @@ import { Badge } from "@/components/iota/ui/badge";
 import { BreadcrumbTrail } from "@/components/iota/ui/breadcrumb";
 import { BulkAction, BulkActionBar } from "@/components/iota/ui/bulk-action-bar";
 import { Button } from "@/components/iota/ui/button";
-import { ButtonGroup, ButtonGroupMenu, ButtonGroupMenuItem } from "@/components/iota/ui/button-group";
+import { ExportGroup } from "@/components/iota/ui/button-group";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/iota/ui/card";
 import { Chart } from "@/components/iota/ui/chart";
 import { Checkbox } from "@/components/iota/ui/checkbox";
@@ -100,14 +100,13 @@ export const ButtonIconDemo = () => (
     <Icon icon={ArrowUp} />
   </Button>
 );
+const EXPORT_FORMATS = [
+  { id: "gif", label: "GIF" },
+  { id: "svg", label: "SVG" },
+  { id: "mp4", label: "MP4" },
+];
 export const ButtonGroupDemo = () => (
-  <ButtonGroup>
-    <Button>Export</Button>
-    <ButtonGroupMenu label="More export options">
-      <ButtonGroupMenuItem>Export as GIF</ButtonGroupMenuItem>
-      <ButtonGroupMenuItem>Export as SVG</ButtonGroupMenuItem>
-    </ButtonGroupMenu>
-  </ButtonGroup>
+  <ExportGroup formats={EXPORT_FORMATS} defaultFormat="gif" onExport={() => new Promise((done) => setTimeout(done, 1600))} />
 );
 export const CopyButtonDemo = () => (
   <div className="flex items-center gap-3 text-[12px]">

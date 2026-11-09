@@ -47,19 +47,19 @@ One quiet grey line around each Card, a fainter rule between its rows, and a str
 | `--ring-cutout` | the gap ring that cuts an overlapping avatar out of the surface | avatar group |  | `2px` |  |
 | `--chart-dash` | stroke-dasharray for a comparison or projected series | chart |  | `6 4` |  |
 | `--chart-axis-gap` | gap between a tick label and the plot; chart.tsx reads it into its layout | chart |  | `8px` |  |
-| `--border-hair` | a divider where fields cannot separate | old hairline, kept until its last reader goes | anything new | `oklch(var(--brand-c) / 0.08)` |  |
-| `--border-faint` | a divider inside a grey card | card rows |  | `oklch(var(--brand-c) / 0.05)` |  |
-| `--border-strong` | the strongest hairline | input hover, outline button |  | `oklch(var(--brand-c) / 0.12)` |  |
-| `--border-control` | the edge of an empty control, 3.4:1 on --surface-page, 3.3:1 on --surface-card (WCAG 1.4.11) | checkbox, radio, switch |  | `oklch(var(--brand-c) / 0.50)` |  |
+| `--border-hair` | a divider where fields cannot separate | old hairline, kept until its last reader goes | anything new | `oklch(var(--ink-c) / 0.08)` |  |
+| `--border-faint` | a divider inside a grey card | card rows |  | `oklch(var(--ink-c) / 0.05)` |  |
+| `--border-strong` | the strongest hairline | input hover, outline button |  | `oklch(var(--ink-c) / 0.12)` |  |
+| `--border-control` | the edge of an empty control, 3.4:1 on --surface-page, 3.3:1 on --surface-card (WCAG 1.4.11) | checkbox, radio, switch |  | `oklch(var(--ink-c) / 0.50)` |  |
 | `--border-focus` | focus outline, always brand | focus outline, always brand | hover | `var(--ink)` |  |
-| `--line-frame` | the one outer edge of a component, 1px, a quiet grey | the one outer edge of a component and of an overlay; a quiet grey, decorative and not in the 3:1 check | rows, or a control's only edge | `oklch(var(--brand-c) / var(--line-frame-alpha))` |  |
-| `--line-row` | the rule between rows and under a header, 1px; decorative, since rows also differ by content and space | between rows and under a header; decorative | a control's only edge | `oklch(var(--brand-c) / 0.08)` |  |
-| `--line-control` | the quiet edge of a field, a secondary button and a chip; the label and placeholder identify the control, so it stays light | empty control edge and strip cells, 3.3:1 on paper | dividers | `oklch(var(--brand-c) / 0.16)` |  |
-| `--line-control-hover` | that edge under the pointer or while open | input, select, secondary button |  | `oklch(var(--brand-c) / 0.32)` |  |
-| `--scrollbar-thumb` | scrollbar thumb at rest | scroll area, scrollbar-color |  | `oklch(var(--brand-c) / 0.20)` |  |
-| `--chart-brand-2` | second brand series, 5.8:1 on --surface-page | multi-series chart without kinds |  | `oklch(var(--brand-c) / 0.66)` |  |
-| `--cell-quiet` | an empty or zero cell in a heat strip or calendar grid | heatmap, status bar |  | `oklch(var(--brand-c) / 0.07)` |  |
-| `--focus-halo` | a field with the cursor: a soft brand halo around its brand edge, eased in | the soft 3px brand halo around a focused field | buttons, which take the outline | `0 0 0 3px oklch(var(--brand-c) / 0.08)` |  |
+| `--line-frame` | the one outer edge of a component, 1px, a quiet grey | the one outer edge of a component and of an overlay; a quiet grey, decorative and not in the 3:1 check | rows, or a control's only edge | `oklch(var(--ink-c) / var(--line-frame-alpha))` |  |
+| `--line-row` | the rule between rows and under a header, 1px; decorative, since rows also differ by content and space | between rows and under a header; decorative | a control's only edge | `oklch(var(--ink-c) / 0.08)` |  |
+| `--line-control` | the quiet edge of a field, a secondary button and a chip; the label and placeholder identify the control, so it stays light | empty control edge and strip cells, 3.3:1 on paper | dividers | `oklch(var(--ink-c) / 0.16)` |  |
+| `--line-control-hover` | that edge under the pointer or while open | input, select, secondary button |  | `oklch(var(--ink-c) / 0.32)` |  |
+| `--scrollbar-thumb` | scrollbar thumb at rest | scroll area, scrollbar-color |  | `oklch(var(--ink-c) / 0.20)` |  |
+| `--chart-ink-2` | second brand series, 5.8:1 on --surface-page | multi-series chart without kinds |  | `oklch(var(--ink-c) / 0.66)` |  |
+| `--cell-quiet` | an empty or zero cell in a heat strip or calendar grid | heatmap, status bar |  | `oklch(var(--ink-c) / 0.07)` |  |
+| `--focus-halo` | a field with the cursor: a soft brand halo around its brand edge, eased in | the soft 3px brand halo around a focused field | buttons, which take the outline | `0 0 0 3px oklch(var(--ink-c) / 0.08)` |  |
 
 ## Decision table
 | You need | Use |

@@ -348,7 +348,8 @@
     padding-inline: var(--space-4) var(--space-2);
     transition: box-shadow var(--dur-fast) var(--ease-step);
   }
-  &:has([data-control]:focus-visible) { box-shadow: inset 0 0 0 1px var(--border-focus); }
+  /* A line under the row, not a box: a box gets cut by whatever rounded frame the row sits in. */
+  &:has([data-control]:focus-visible) { box-shadow: inset 0 -1px 0 var(--border-focus); }
   :where(& > svg) { flex-shrink: 0; color: var(--text-3); }
 }
 @utility search-field {

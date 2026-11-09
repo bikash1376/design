@@ -179,19 +179,22 @@ The class to use follows each token in brackets. Color names take bg-, text- or 
 - Lines: --line-hair, --line-accent, --line-focus (focus-ring), --focus-offset, --line-frame-alpha, --mark-size, --ring-cutout, --chart-dash, --chart-axis-gap
 - Motion: --dur-press, --dur-fast, --dur-base, --dur-slow, --dur-spin, --dur-run, --dur-slide, --ease-spin, --thumb-lift, --thumb-ring-alpha, --skeleton-step, --dur-skeleton-delay, --dur-skeleton-hold, --toast-read-base, --toast-read-char, --toast-read-action, --toast-read-min, --toast-read-max, --scale-press, --ease-step (ease-step), --sheet-shift, --surface-skeleton, --stale-opacity, --dim-opacity
 - Layers: --z-raised, --z-above, --z-cover, --z-drop, --z-overlay
-- Code: --code-string-alpha, --code-comment-alpha, --code-text, --code-string, --code-comment, --code-prompt
+- Code: --code-string-alpha, --code-comment-alpha, --code-text, --code-string, --code-comment, --code-prompt, --code-keyword, --code-tag, --code-attr, --code-number, --code-punct
+- Brand: --brand (bg-/text-/border-brand), --brand-foreground (text-brand-foreground)
+- iOTA surfaces: --panel (bg-panel), --fill (bg-fill), --message-bg, --switch-off, --muted-fg (text-text-muted), --faint-fg (text-text-faint), --hairline, --card-tint (bg-card-tint), --card-frame (bg-card-frame), --card-frame-border (border-card-frame-border), --card-outline (border-card-outline), --card-outline-strong (border-card-outline-strong), --warm-paper (bg-warm-paper), --soft-ink (bg-soft-ink)
+- Canvas, for a floating component canvas: --canvas-bg, --canvas-line, --canvas-dot
 - Surface: --ink (bg-ink), --paper (bg-paper), --surface-canvas, --surface-page (bg-page), --surface-card (bg-well), --surface-frame, --surface-raised (bg-raised), --surface-hover (bg-hover), --surface-selected (bg-selected), --surface-pressed (bg-pressed), --surface-inverse (bg-inverse), --surface-tile (bg-tile), --surface-overlay (bg-overlay)
 - Text: --text-1 (text-text-1), --text-2 (text-text-2), --text-3 (text-text-3), --text-disabled (text-text-disabled), --text-inverse (text-text-inverse), --text-on-field (text-on-field)
 - Border: --border-hair (border-hair), --border-faint (border-faint), --border-strong (border-strong), --border-control (border-control), --border-focus (border-ring), --line-frame (border-frame), --line-row (border-line-row), --line-control (border-input), --line-control-hover, --scrollbar-thumb
 - Elevation: --surface-thumb, --focus-halo, --elev-control, --elev-none, --elev-thumb, --elev-overlay (shadow-overlay)
 - Accent slot: --accent-mark (bg-/text-/border-accent-mark), --accent-field (bg-/text-/border-accent-field), --accent-wash (bg-/text-/border-accent-wash), --accent-tint (bg-/text-/border-accent-tint), --accent-label (bg-/text-/border-accent-label), --accent-line (bg-/text-/border-accent-line), --accent-on-field (bg-/text-/border-on-accent-field)
 - Button: 18 tokens read only through their classes and components; never by name.
-- Chart: --chart-brand-2 (bg-/text-/border-chart-brand-2), --cell-quiet (bg-/text-/border-cell-quiet)
+- Chart: --chart-ink-2 (bg-/text-/border-chart-ink-2), --cell-quiet (bg-/text-/border-cell-quiet)
 
 ## Components
 
 ### Actions
-- [Button](https://design.useiota.space/components/button.md): Every button: primary, secondary, ghost, with an icon, icon only, joined groups with split menus, and a bar for bulk actions. `import {Button} from '@/components/iota/ui/button'`, and `import {ButtonGroup, ButtonGroupMenu, ButtonGroupMenuItem} from '@/components/iota/ui/button-group'`
+- [Button](https://design.useiota.space/components/button.md): Every button: primary, secondary, ghost, with an icon, icon only, joined groups with split menus, a ready-made export button that runs Exporting then Exported (`ExportGroup`), and a bar for bulk actions. `import {Button} from '@/components/iota/ui/button'`, and `import {ButtonGroup, ButtonGroupMenu, ButtonGroupMenuItem, ExportGroup} from '@/components/iota/ui/button-group'`
 - [Copy button](https://design.useiota.space/components/copy-button.md): Copies a value and confirms in place. `import {CopyButton} from '@/components/iota/ui/copy-button'`
 
 ### Inputs

@@ -6,6 +6,8 @@ import { Dialog } from "@base-ui/react/dialog";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
+export const OPEN_SEARCH = "iota:open-search";
+
 export type NavIndex = {
   components: { slug: string; title: string; group: string }[];
   foundations: { slug: string; title: string }[];
@@ -52,8 +54,17 @@ export function CommandMenu({ index }: { index: NavIndex }) {
         setOpen((o) => !o);
       }
     };
+    const onOpen = () => {
+      setQuery("");
+      setActive(0);
+      setOpen(true);
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener(OPEN_SEARCH, onOpen);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener(OPEN_SEARCH, onOpen);
+    };
   }, []);
 
   useEffect(() => {

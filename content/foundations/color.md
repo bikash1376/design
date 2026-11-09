@@ -24,7 +24,10 @@ White chassis, one brand blue, and warm colors only for trouble.
 | `--fill` | `#e6e6e9` | `#2a2a31` | Slider fill, segmented thumb |
 | `--card-frame` | `#fbf9f7` | `#131316` | The mat a preview sits on |
 | `--card-frame-border` | `#f0f0f0` | `#1d1d21` | Card edge |
+| `--message-bg` | `#f2f2f2` | `#1c1c20` | Every message bubble and agent response |
+| `--switch-off` | `#f1f1f3` | `#26262b` | Switch track when off; a control row steps it to `--fill` |
 | `--canvas-bg` | `#f2f2f2` | `#101013` | The floating canvas |
+| `--canvas-line` | `#dadada` | `#26262b` | The canvas's 1px outline |
 | `--canvas-dot` | brand at 34% | brand at 34% | Canvas dots |
 
 ## Kind hues

@@ -121,7 +121,7 @@ Other props pass through to the root element.
 - Study a chart on a working page -> Put it in a Card with frame="plain"; frame="panel" is the widget.
 
 ## Tokens
---accent-mark, --accent-line, --line-accent, --chart-brand-2, --accent-wash, --line-frame, --line-row, --line-hair, --ink, --type-label-sm, --text-3, --surface-skeleton, --cell-quiet, --elev-overlay, --radius-soft, --radius-frame, --mark-size, --chart-dash
+--accent-mark, --accent-line, --line-accent, --chart-ink-2, --accent-wash, --line-frame, --line-row, --line-hair, --ink, --type-label-sm, --text-3, --surface-skeleton, --cell-quiet, --elev-overlay, --radius-soft, --radius-frame, --mark-size, --chart-dash
 
 ## Related
 - [Stat](/components/stat.md): A plain numeral with its label, delta and trend.

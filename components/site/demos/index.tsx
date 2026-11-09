@@ -17,7 +17,7 @@ export const DEMOS: Record<string, DemoSpec> = {
   "button-ghost": { ...b(70, 36, Q.ButtonGhostDemo), doc: "button", title: "Ghost button" },
   "button-icon-left": { ...b(120, 36, Q.ButtonIconLeftDemo), doc: "button", title: "Button with icon" },
   "button-icon": { ...b(40, 36, Q.ButtonIconDemo), doc: "button", title: "Icon button" },
-  "button-group": { ...b(120, 36, Q.ButtonGroupDemo), doc: "button", title: "Button group" },
+  "button-group": { ...b(170, 36, Q.ButtonGroupDemo), doc: "button", title: "Button group" },
   "button-bulk": { ...b(300, 44, Q.BulkActionBarDemo), doc: "button", title: "Bulk actions" },
   "copy-button": b(170, 32, Q.CopyButtonDemo),
   input: s(280, 96, Q.InputDemo),

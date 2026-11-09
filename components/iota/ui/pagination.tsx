@@ -9,7 +9,7 @@ function Pagination({className, ...props}: React.ComponentProps<'nav'>) {
 }
 
 function PaginationContent({className, ...props}: React.ComponentProps<'ul'>) {
-  return <ul data-slot="pagination-content" className={cn('flex items-center', className)} {...props}/>;
+  return <ul data-slot="pagination-content" className={cn('flex items-center rounded-soft bg-page', className)} {...props}/>;
 }
 
 function PaginationItem({className, ...props}: React.ComponentProps<'li'>) {

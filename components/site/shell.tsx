@@ -42,8 +42,8 @@ export function Shell({ children, index }: { children: ReactNode; index: NavInde
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape" || !inDoc) return;
       const t = e.target as HTMLElement;
-      if (t.closest("[role=dialog],[role=menu],[role=listbox]")) return;
-      if (document.querySelector("[data-slot=dialog-content],[data-slot=command-dialog]")) return;
+      if (e.defaultPrevented || t.closest("[role=dialog],[role=menu],[role=listbox],[role=alertdialog],input,textarea,select,[contenteditable=true]")) return;
+      if (document.querySelector("[data-popup-open],[aria-expanded=true][aria-haspopup],[role=dialog],[role=alertdialog],[role=menu],[role=listbox],[data-slot=dialog-content],[data-slot=command-dialog]")) return;
       router.push("/");
     };
     window.addEventListener("keydown", onKey);

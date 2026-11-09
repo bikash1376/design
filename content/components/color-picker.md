@@ -2,6 +2,8 @@
 name: Color picker
 system: iota
 kind: component
+more: https://github.com/bikash1376/design/blob/main/components/iota-app/ui/color-picker.tsx
+more-label: View source on GitHub
 import: "import {ColorSwatch} from '@/components/iota-app/ui/color-picker'"
 install: "npx shadcn@latest add {{SITE}}/r/color-picker.json"
 version: 1

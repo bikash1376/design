@@ -27,6 +27,14 @@ const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v
 
 // The canvas outline with a soft notch cut from its top-right corner for the X link.
 export const NOTCH = 52;
+const BORDER = 1;
+function notchedInner(w: number, h: number) {
+  const R = 16;
+  const r = 14;
+  const n = NOTCH;
+  const b = BORDER;
+  return `path("M ${R} ${b} H ${w - n - r} A ${r - b} ${r - b} 0 0 1 ${w - n - b} ${r} V ${n - r} A ${r + b} ${r + b} 0 0 0 ${w - n + r} ${n + b} H ${w - r} A ${r - b} ${r - b} 0 0 1 ${w - b} ${n + r} V ${h - R} A ${R - b} ${R - b} 0 0 1 ${w - R} ${h - b} H ${R} A ${R - b} ${R - b} 0 0 1 ${b} ${h - R} V ${R} A ${R - b} ${R - b} 0 0 1 ${R} ${b} Z")`;
+}
 function notchedOutline(w: number, h: number) {
   const R = 16; // outer corners
   const r = 14; // every curve of the notch
@@ -276,8 +284,8 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     const el = viewport.current;
     if (!el) return;
     size.current = { w: el.clientWidth, h: el.clientHeight };
-    el.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
-    if (shadowShape.current) shadowShape.current.style.clipPath = el.style.clipPath;
+    el.style.clipPath = notchedInner(el.clientWidth, el.clientHeight);
+      if (shadowShape.current) shadowShape.current.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
     const node = selectedKey ? NODES.find((n) => n.slug === selectedKey) : null;
     if (node) centerOn(node, true);
     else moveTo(el.clientWidth / 2, el.clientHeight / 2, 1, true);
@@ -288,8 +296,8 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     const t = setTimeout(() => setEnteredDone(true), 1400);
     const ro = new ResizeObserver(() => {
       size.current = { w: el.clientWidth, h: el.clientHeight };
-      el.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
-    if (shadowShape.current) shadowShape.current.style.clipPath = el.style.clipPath;
+      el.style.clipPath = notchedInner(el.clientWidth, el.clientHeight);
+      if (shadowShape.current) shadowShape.current.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
       refreshLive();
     });
     ro.observe(el);
@@ -337,6 +345,8 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
   const justDragged = useRef(false);
 
   const onPointerDown = (e: React.PointerEvent) => {
+    // React bubbles events out of portals, so a menu or dialog item arrives here too.
+    if (!viewport.current?.contains(e.target as Node)) return;
     if (e.button !== 0 || (e.target as HTMLElement).closest("[data-live],[data-canvas-ui]")) return;
     stop();
     justDragged.current = false;
@@ -418,7 +428,7 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
   }, [limits, x, y, zoom, zoomAt]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
-    if ((e.target as HTMLElement).closest("[data-live]")) return;
+    if (!viewport.current?.contains(e.target as Node) || (e.target as HTMLElement).closest("[data-live]")) return;
     const step = e.shiftKey ? 240 : 80;
     const moves: Record<string, [number, number]> = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
     const m = moves[e.key];
@@ -457,10 +467,10 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
 
   return (
     <>
-    {/* The clip path would cut a box-shadow off, so a still copy of the shape carries a drop-shadow.
-        It sits outside the moving canvas, so panning and floating never repaint the shadow. */}
+    {/* A clip path would cut off a box-shadow or border, so a still copy of the shape carries both:
+        its fill is the border, and its drop-shadow never repaints as the canvas moves. */}
     <div aria-hidden className="canvas-shadow pointer-events-none absolute inset-0">
-      <div ref={shadowShape} className="size-full rounded-2xl bg-(--canvas-bg)" />
+      <div ref={shadowShape} className="size-full rounded-2xl bg-(--canvas-line)" />
     </div>
     <div
       ref={viewport}
