@@ -13,6 +13,9 @@ human: {{SITE}}/components/pixel-title
 
 The wordmark types itself out, then letters keep morphing between Geist Pixel variants.
 
+## Setup
+Load Geist Pixel as the CSS variable `--font-geist-pixel`, and as `--font-pixel-circle`, `--font-pixel-grid`, `--font-pixel-line` and `--font-pixel-triangle` for the morph. Without them the letters fall back to the default font.
+
 ## Use when
 - The iOTA wordmark on a hero or a navbar.
 

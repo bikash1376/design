@@ -9,6 +9,7 @@ license: MIT
 White chassis, one brand blue (#0057fc) for the primary action and checked controls, muted kind hues, warm trouble colors, Geist at small sizes. Built on shadcn and Base UI, with Motion, Lenis, Torph, Phosphor and Hugeicons.
 
 ## Setup
+Install once: `npx shadcn@latest add https://design.useiota.space/r/theme.json`. In `app/globals.css`, directly after the Tailwind import, add `@import "../components/iota/styles.css";`. Load Geist and Geist Mono as `--font-geist-sans` and `--font-geist-mono`.
 Once, in the root layout: put the "iota" class on `<body>` or the root element of the UI, with `IotaPortalProvider` inside it. iOTA's styles and tokens apply only inside that class.
 Menus, dialogs, popovers and toasts render at the end of the body; IotaPortalProvider keeps them inside the scope, and without it they lose every token. `import {IotaPortalProvider} from '@/components/iota/lib/portal'`
 `<body className="iota"><IotaPortalProvider>{children}</IotaPortalProvider></body>`

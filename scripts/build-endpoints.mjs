@@ -145,6 +145,7 @@ const EXTRA_ENTRIES = {
   button: ["components/iota/ui/button-group.tsx", "components/iota/ui/bulk-action-bar.tsx"],
   "dropdown-menu": ["components/iota-app/ui/export-menu.tsx"],
   "text-effects": ["components/iota-app/typewriter.tsx", "components/iota-app/work/motion.tsx"],
+  message: ["components/iota/ai/response.tsx", "components/iota/ai/tool-call.tsx"],
 };
 const items = [];
 const rel = (f) => path.relative(ROOT, f).replace(/\\/g, "/");
@@ -181,10 +182,15 @@ for (const c of catalog) {
     meta: { docs: `${SITE}/components/${c.slug}.md`, page: `${SITE}/components/${c.slug}` },
   };
   put(`r/${c.slug}.json`, JSON.stringify(item));
+  const importLine = fs.readFileSync(path.join(CONTENT, "components", `${c.slug}.md`), "utf8").match(/^import: (.*)$/m)?.[1] ?? "";
+  for (const m of importLine.matchAll(/from '@\/(components\/[^']+)'/g)) {
+    const want = resolveFile(path.join(ROOT, m[1]));
+    if (!want || !files.includes(want)) throw new Error(`Registry item ${c.slug} is missing ${m[1]}`);
+  }
   const { files: _f, ...summary } = item;
   items.push(summary);
 }
-const themeFiles = ["tokens.css", "base.css", "styles.css", "lib/utils.ts", "THIRD_PARTY_NOTICES.md"].map((f) => path.join(ROOT, "components/iota", f));
+const themeFiles = ["tokens.css", "base.css", "styles.css", "lib/utils.ts", "lib/portal.ts", "THIRD_PARTY_NOTICES.md"].map((f) => path.join(ROOT, "components/iota", f));
 const skillMd = site(fs.readFileSync(path.join(CONTENT, "skills/iota/SKILL.md"), "utf8"));
 put("r/theme.json", JSON.stringify({
   $schema: "https://ui.shadcn.com/schema/registry-item.json",
@@ -198,7 +204,7 @@ put("r/theme.json", JSON.stringify({
     ...themeFiles.map((f) => ({ path: rel(f), type: "registry:file", target: rel(f), content: fs.readFileSync(f, "utf8") })),
     { path: "skills/iota/SKILL.md", type: "registry:file", target: ".claude/skills/iota/SKILL.md", content: skillMd },
   ],
-  docs: `Add @import "@/components/iota/styles.css"; to your global CSS after Tailwind, and put class="iota" on <body>.`,
+  docs: `In app/globals.css, after Tailwind, add @import "../components/iota/styles.css"; Then put className="iota" on <body> with IotaPortalProvider from @/components/iota/lib/portal inside it, and load Geist and Geist Mono as --font-geist-sans and --font-geist-mono.`,
 }));
 put("r/lint.json", JSON.stringify({
   $schema: "https://ui.shadcn.com/schema/registry-item.json",

@@ -13,13 +13,15 @@ export function HomePanel({ counts, foundation, skill }: { counts: { components:
 
   const prompt = () => {
     const site = "https://design.useiota.space";
-    return `Install the iOTA design system in this project, then follow it for all UI work.
+    return `Install the iOTA design system in this Next.js project, then follow it for all UI work.
 
 1. Run: npx skills@latest add ${site}
-2. Run: npx shadcn@latest add ${site}/r/theme.json
-3. Add @import "@/components/iota/styles.css"; to the global CSS after Tailwind, and put className="iota" on <body> with IotaPortalProvider inside it.
-4. Read ${site}/skills/iota/SKILL.md and treat its rules as binding.
-5. Before using a component, fetch ${site}/components/<name>.md. Install it with: npx shadcn@latest add ${site}/r/<name>.json
+2. If components.json does not exist, run: npx shadcn@latest init --base base --preset nova --yes
+3. Run: npx shadcn@latest add ${site}/r/theme.json
+4. In app/globals.css, directly after the Tailwind import, add: @import "../components/iota/styles.css";
+5. In the root layout, load Geist and Geist Mono as the CSS variables --font-geist-sans and --font-geist-mono, put className="iota" on <body>, and wrap children in IotaPortalProvider from @/components/iota/lib/portal.
+6. Read ${site}/skills/iota/SKILL.md and treat its rules as binding.
+7. Before using a component, fetch ${site}/components/<name>.md. Install it with: npx shadcn@latest add ${site}/r/<name>.json
 
 The index of everything is at ${site}/llms.txt`;
   };
