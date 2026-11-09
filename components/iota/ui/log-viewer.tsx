@@ -235,7 +235,7 @@ function LogViewer({lines, follow = true, streaming = false, toolbar = false, he
         event.clipboardData.setData('text/plain', rows.map(row => [...row.children].map(cell => cell.textContent?.trim()).filter(Boolean).join(' ')).join('\n'));
         event.preventDefault();
       }}
-      className={cn('min-h-0 well scroll-fade-y overflow-auto py-2 text-(--code-text) focus-visible:focus-ring-inset [scrollbar-width:thin]')}
+      className={cn('min-h-0 well scroll-fade-y overflow-auto py-2 text-(--code-text) focus-visible:focus-ring-inset')}
       style={{height}}
     >
       {filtered.length === 0

@@ -1,4 +1,4 @@
-Components in this folder are adapted from Quartz (https://design.how/systems/quartz) by Arlan Marat.
+Portions of this design system are adapted from work by Arlan Marat, used under the MIT License.
 
 MIT License
 

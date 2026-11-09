@@ -1,7 +1,6 @@
 ---
 name: Chip
 system: iota
-source: quartz
 kind: component
 import: "import {Chip, ChipButton, ChipCount, ChipGroup, ChipGroupContext, chipVariants} from '@/components/iota/ui/chip'"
 install: "npx shadcn@latest add {{SITE}}/r/chip.json"

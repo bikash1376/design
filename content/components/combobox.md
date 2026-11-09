@@ -1,7 +1,6 @@
 ---
 name: Combobox
 system: iota
-source: quartz
 kind: component
 import: "import {Combobox, ComboboxChip, ComboboxChips, ComboboxChipsInput, ComboboxClear, ComboboxCollection, ComboboxContent, ComboboxCreate, ComboboxEmpty, ComboboxField, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxLabel, ComboboxList, ComboboxSeparator, ComboboxTrigger, ComboboxValue, normalizeEmail, splitEmails, useComboboxAnchor, validateEmail} from '@/components/iota/ui/combobox'"
 install: "npx shadcn@latest add {{SITE}}/r/combobox.json"

@@ -1,7 +1,6 @@
 ---
 name: Avatar
 system: iota
-source: quartz
 kind: component
 import: "import {Avatar, AvatarImage, AvatarFallback, AvatarBadge, AvatarInitials, AvatarGroup, AvatarGroupCount, avatarVariants, initialsOf} from '@/components/iota/ui/avatar'"
 install: "npx shadcn@latest add {{SITE}}/r/avatar.json"

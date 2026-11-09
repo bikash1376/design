@@ -1,7 +1,6 @@
 ---
 name: Command
 system: iota
-source: quartz
 kind: component
 import: "import {Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandLoading, CommandGroup, CommandItem, CommandLabel, CommandShortcut, CommandSeparator, CommandFooter, CommandHint, useCommand} from '@/components/iota/ui/command'"
 install: "npx shadcn@latest add {{SITE}}/r/command.json"

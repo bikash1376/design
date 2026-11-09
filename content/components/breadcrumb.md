@@ -1,7 +1,6 @@
 ---
 name: Breadcrumb
 system: iota
-source: quartz
 kind: component
 import: "import {Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis, BreadcrumbId, BreadcrumbTrail} from '@/components/iota/ui/breadcrumb'"
 install: "npx shadcn@latest add {{SITE}}/r/breadcrumb.json"

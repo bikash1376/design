@@ -1,7 +1,6 @@
 ---
 name: Collapsible
 system: iota
-source: quartz
 kind: component
 import: "import {Collapsible, CollapsibleGroup, CollapsibleTrigger, CollapsibleCaret, CollapsibleContent} from '@/components/iota/ui/collapsible'"
 install: "npx shadcn@latest add {{SITE}}/r/collapsible.json"

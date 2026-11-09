@@ -1,7 +1,6 @@
 ---
 name: Page header
 system: iota
-source: quartz
 kind: component
 import: "import {PageHeader, PageHeaderRow, PageHeaderContent, PageHeaderTitle, PageHeaderDescription, PageHeaderActions} from '@/components/iota/ui/page-header'"
 install: "npx shadcn@latest add {{SITE}}/r/page-header.json"

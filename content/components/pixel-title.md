@@ -1,7 +1,6 @@
 ---
 name: Pixel title
 system: iota
-source: iota
 kind: component
 import: "import {PixelTitle} from '@/components/iota-app/pixel-title'"
 install: "npx shadcn@latest add {{SITE}}/r/pixel-title.json"

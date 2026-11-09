@@ -1,7 +1,6 @@
 ---
 name: Response
 system: iota
-source: quartz
 kind: component
 import: "import {Response, usePacedText, splitChunks, parseMarkdown, resolveTag, viableLength, completeJsonEnd, closeJson, nextCut, paceStep, safeHref, responseVariants} from '@/components/iota/ai/response'"
 install: "npx shadcn@latest add {{SITE}}/r/response.json"

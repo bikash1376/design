@@ -11,7 +11,7 @@ function pluginPath() {
     if (alias) dirs.push(...['', 'src'].map(base => join(here, base, alias.replace(/^[@~]\//, ''), 'iota/lint')));
   } catch {}
   const found = dirs.map(dir => join(dir, 'plugin.mjs')).find(existsSync);
-  if (!found) throw new Error('Iota lint: lib/iota/lint/plugin.mjs is missing. Run npx shadcn@latest add https://design.how/r/iota/lint.json');
+  if (!found) throw new Error('Iota lint: lib/iota/lint/plugin.mjs is missing. Run npx shadcn@latest add https://design.useiota.space/r/lint.json');
   return found;
 }
 

@@ -1,7 +1,6 @@
 ---
 name: Empty state
 system: iota
-source: quartz
 kind: component
 import: "import {Empty, EmptyHeader, EmptyMedia, EmptyTitle, EmptyDescription, EmptyContent, EmptyStatus, EmptyCode, EmptyQuery, EmptyRetry, emptyVariants} from '@/components/iota/ui/empty-state'"
 install: "npx shadcn@latest add {{SITE}}/r/empty-state.json"

@@ -1,7 +1,6 @@
 ---
 name: Tooltip
 system: iota
-source: quartz
 kind: component
 import: "import {Tooltip, TooltipTrigger, TooltipContent, TooltipChip, TooltipProvider, TooltipShortcut, tooltipPopupClass, tooltipMotionClass} from '@/components/iota/ui/tooltip'"
 install: "npx shadcn@latest add {{SITE}}/r/tooltip.json"

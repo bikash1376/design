@@ -1,7 +1,6 @@
 ---
 name: Popover
 system: iota
-source: quartz
 kind: component
 import: "import {Popover, PopoverTrigger, PopoverClose, PopoverContent, PopoverHeader, PopoverTitle, PopoverDescription, PopoverInfo} from '@/components/iota/ui/popover'"
 install: "npx shadcn@latest add {{SITE}}/r/popover.json"

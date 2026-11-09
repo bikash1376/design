@@ -1,7 +1,6 @@
 ---
 name: Dialog
 system: iota
-source: quartz
 kind: component
 import: "import {Dialog, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogHeader, DialogBody, DialogFooter, DialogTitle, DialogDescription, DialogClose, DialogAction, DialogConfirmField, dialogVariants, dialogSurface, useDialog} from '@/components/iota/ui/dialog'"
 install: "npx shadcn@latest add {{SITE}}/r/dialog.json"

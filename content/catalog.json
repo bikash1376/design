@@ -3,455 +3,390 @@
   "slug": "activity",
   "title": "Activity",
   "group": "AI",
-  "description": "What the agent is doing now, with the first-wait loader.",
-  "source": "quartz"
+  "description": "What the agent is doing now, with the first-wait loader."
  },
  {
   "slug": "alert",
   "title": "Alert",
   "group": "Feedback",
-  "description": "A message about the current view, inline or across the page.",
-  "source": "quartz"
+  "description": "A message about the current view, inline or across the page."
  },
  {
   "slug": "attachment",
   "title": "Attachment",
   "group": "Media and charts",
-  "description": "A file in a form, prompt or message, with drop zone and image tile.",
-  "source": "quartz"
+  "description": "A file in a form, prompt or message, with drop zone and image tile."
  },
  {
   "slug": "avatar",
   "title": "Avatar",
   "group": "Display",
-  "description": "A person, agent or source icon, alone or grouped.",
-  "source": "quartz"
+  "description": "A person, agent or source icon, alone or grouped."
  },
  {
   "slug": "badge",
   "title": "Badge",
   "group": "Display",
-  "description": "A static label for a count, category or kind, shown as a tinted word.",
-  "source": "quartz"
+  "description": "A static label for a count, category or kind, shown as a tinted word."
  },
  {
   "slug": "breadcrumb",
   "title": "Breadcrumb",
   "group": "Navigation",
-  "description": "Where the page sits.",
-  "source": "quartz"
+  "description": "Where the page sits."
  },
  {
   "slug": "button",
   "title": "Button",
   "group": "Actions",
-  "description": "Starts an action now. States: pressed and pending, which keeps the label.",
-  "source": "quartz"
+  "description": "Starts an action now. States: pressed and pending, which keeps the label."
  },
  {
   "slug": "card",
   "title": "Card",
   "group": "Display",
-  "description": "A white working surface for one topic, optionally collapsible.",
-  "source": "quartz"
+  "description": "A white working surface for one topic, optionally collapsible."
  },
  {
   "slug": "chart",
   "title": "Chart",
   "group": "Media and charts",
-  "description": "Line, bar, sparkline or status buckets, with frame states, legend, tooltip and data table built in.",
-  "source": "quartz"
+  "description": "Line, bar, sparkline or status buckets, with frame states, legend, tooltip and data table built in."
  },
  {
   "slug": "checkbox",
   "title": "Checkbox",
   "group": "Selection",
-  "description": "One option on or off, with a mixed state.",
-  "source": "quartz"
+  "description": "One option on or off, with a mixed state."
  },
  {
   "slug": "collapsible",
   "title": "Collapsible",
   "group": "Layout",
-  "description": "Shows and hides one region, or a group of them.",
-  "source": "quartz"
+  "description": "Shows and hides one region, or a group of them."
  },
  {
   "slug": "combobox",
   "title": "Combobox",
   "group": "Inputs",
-  "description": "A searchable choice, single, multiple or creatable.",
-  "source": "quartz"
+  "description": "A searchable choice, single, multiple or creatable."
  },
  {
   "slug": "command",
   "title": "Command",
   "group": "Overlays",
-  "description": "A searchable command list, the core of the command palette.",
-  "source": "quartz"
+  "description": "A searchable command list, the core of the command palette."
  },
  {
   "slug": "conversation",
   "title": "Conversation",
   "group": "AI",
-  "description": "Keeps a streaming thread pinned to the bottom until the person scrolls.",
-  "source": "quartz"
+  "description": "Keeps a streaming thread pinned to the bottom until the person scrolls."
  },
  {
   "slug": "copy-button",
   "title": "Copy button",
   "group": "Actions",
-  "description": "Copies a value and confirms in place.",
-  "source": "quartz"
+  "description": "Copies a value and confirms in place."
  },
  {
   "slug": "data-grid",
   "title": "Data grid",
   "group": "Data",
-  "description": "A table with spreadsheet behavior: cell focus, editing and paste.",
-  "source": "quartz"
+  "description": "A table with spreadsheet behavior: cell focus, editing and paste."
  },
  {
   "slug": "data-list",
   "title": "Data list",
   "group": "Display",
-  "description": "Label and value pairs for a detail view.",
-  "source": "quartz"
+  "description": "Label and value pairs for a detail view."
  },
  {
   "slug": "date-picker",
   "title": "Date picker",
   "group": "Inputs",
-  "description": "A date, range, date-time or time, with Calendar as its popup part.",
-  "source": "quartz"
+  "description": "A date, range, date-time or time, with Calendar as its popup part."
  },
  {
   "slug": "dialog",
   "title": "Dialog",
   "group": "Overlays",
-  "description": "Modal work, with alert and typed-confirm variants.",
-  "source": "quartz"
+  "description": "Modal work, with alert and typed-confirm variants."
  },
  {
   "slug": "dropdown-menu",
   "title": "Dropdown menu",
   "group": "Overlays",
-  "description": "Actions from a trigger or a right click.",
-  "source": "quartz"
+  "description": "Actions from a trigger or a right click."
  },
  {
   "slug": "empty-state",
   "title": "Empty state",
   "group": "Feedback",
-  "description": "A region with nothing to show, that failed, or that the person cannot see.",
-  "source": "quartz"
+  "description": "A region with nothing to show, that failed, or that the person cannot see."
  },
  {
   "slug": "field",
   "title": "Field",
   "group": "Inputs",
-  "description": "Label, control, hint and error as one unit, plus the Form part.",
-  "source": "quartz"
+  "description": "Label, control, hint and error as one unit, plus the Form part."
  },
  {
   "slug": "filter-bar",
   "title": "Filter bar",
   "group": "Data",
-  "description": "Search plus filter chips and clear-all.",
-  "source": "quartz"
+  "description": "Search plus filter chips and clear-all."
  },
  {
   "slug": "input",
   "title": "Input",
   "group": "Inputs",
-  "description": "One line of text. Variants: text, password, secret, copy, search, number and OTP, with prefix and suffix slots.",
-  "source": "quartz"
+  "description": "One line of text. Variants: text, password, secret, copy, search, number and OTP, with prefix and suffix slots."
  },
  {
   "slug": "item",
   "title": "Item",
   "group": "Display",
-  "description": "The list row: media, title, meta, status and actions.",
-  "source": "quartz"
+  "description": "The list row: media, title, meta, status and actions."
  },
  {
   "slug": "json-view",
   "title": "JSON view",
   "group": "Code",
-  "description": "Foldable structured output.",
-  "source": "quartz"
+  "description": "Foldable structured output."
  },
  {
   "slug": "kbd",
   "title": "Kbd",
   "group": "Display",
-  "description": "A key or a shortcut.",
-  "source": "quartz"
+  "description": "A key or a shortcut."
  },
  {
   "slug": "log-viewer",
   "title": "Log viewer",
   "group": "Code",
-  "description": "Streaming lines with levels, search and follow.",
-  "source": "quartz"
+  "description": "Streaming lines with levels, search and follow."
  },
  {
   "slug": "message",
   "title": "Message",
   "group": "AI",
-  "description": "One turn from the person or the agent, plus dividers.",
-  "source": "quartz"
+  "description": "One turn from the person or the agent, plus dividers."
  },
  {
   "slug": "pagination",
   "title": "Pagination",
   "group": "Navigation",
-  "description": "Moves through pages of results.",
-  "source": "quartz"
+  "description": "Moves through pages of results."
  },
  {
   "slug": "panel",
   "title": "Panel",
   "group": "Display",
-  "description": "A grey widget for an overview or settings screen: header on the grey, content in a white body.",
-  "source": "quartz"
+  "description": "A grey widget for an overview or settings screen: header on the grey, content in a white body."
  },
  {
   "slug": "popover",
   "title": "Popover",
   "group": "Overlays",
-  "description": "Anchored rich content, including the info toggletip and the hover preview.",
-  "source": "quartz"
+  "description": "Anchored rich content, including the info toggletip and the hover preview."
  },
  {
   "slug": "progress",
   "title": "Progress",
   "group": "Feedback",
-  "description": "Bar, ring, steps or meter.",
-  "source": "quartz"
+  "description": "Bar, ring, steps or meter."
  },
  {
   "slug": "prompt-input",
   "title": "Prompt input",
   "group": "AI",
-  "description": "The composer editor with mentions, slash commands and voice.",
-  "source": "quartz"
+  "description": "The composer editor with mentions, slash commands and voice."
  },
  {
   "slug": "radio-group",
   "title": "Radio group",
   "group": "Selection",
-  "description": "One choice from a short visible list.",
-  "source": "quartz"
+  "description": "One choice from a short visible list."
  },
  {
   "slug": "reasoning",
   "title": "Reasoning",
   "group": "AI",
-  "description": "The model's thinking, open while it streams and folded when done.",
-  "source": "quartz"
+  "description": "The model's thinking, open while it streams and folded when done."
  },
  {
   "slug": "relative-time",
   "title": "Relative time",
   "group": "Display",
-  "description": "\"3m ago\", with the exact time on hover and focus.",
-  "source": "quartz"
+  "description": "\"3m ago\", with the exact time on hover and focus."
  },
  {
   "slug": "response",
   "title": "Response",
   "group": "AI",
-  "description": "Markdown that renders as it streams.",
-  "source": "quartz"
+  "description": "Markdown that renders as it streams."
  },
  {
   "slug": "segmented-control",
   "title": "Segmented control",
   "group": "Selection",
-  "description": "Two to five views, single or multiple.",
-  "source": "quartz"
+  "description": "Two to five views, single or multiple."
  },
  {
   "slug": "select",
   "title": "Select",
   "group": "Selection",
-  "description": "One choice from a popup list, or the native select.",
-  "source": "quartz"
+  "description": "One choice from a popup list, or the native select."
  },
  {
   "slug": "sheet",
   "title": "Sheet",
   "group": "Overlays",
-  "description": "A panel from an edge, modal or docked.",
-  "source": "quartz"
+  "description": "A panel from an edge, modal or docked."
  },
  {
   "slug": "skeleton",
   "title": "Skeleton",
   "group": "Feedback",
-  "description": "Holds the shape of loading content.",
-  "source": "quartz"
+  "description": "Holds the shape of loading content."
  },
  {
   "slug": "slider",
   "title": "Slider",
   "group": "Selection",
-  "description": "A value or range on a track.",
-  "source": "quartz"
+  "description": "A value or range on a track."
  },
  {
   "slug": "stat",
   "title": "Stat",
   "group": "Display",
-  "description": "A plain numeral with its label, delta and trend.",
-  "source": "quartz"
+  "description": "A plain numeral with its label, delta and trend."
  },
  {
   "slug": "status",
   "title": "Status",
   "group": "Display",
-  "description": "Idle, queued, running, waiting, ok, warn and fail, as a mark or a word.",
-  "source": "quartz"
+  "description": "Idle, queued, running, waiting, ok, warn and fail, as a mark or a word."
  },
  {
   "slug": "switch",
   "title": "Switch",
   "group": "Selection",
-  "description": "A setting that applies immediately.",
-  "source": "quartz"
+  "description": "A setting that applies immediately."
  },
  {
   "slug": "table",
   "title": "Table",
   "group": "Data",
-  "description": "Rows and columns with sort, selection, row actions and virtualization.",
-  "source": "quartz"
+  "description": "Rows and columns with sort, selection, row actions and virtualization."
  },
  {
   "slug": "tabs",
   "title": "Tabs",
   "group": "Navigation",
-  "description": "Panels of one view, with closable and reorderable document tabs.",
-  "source": "quartz"
+  "description": "Panels of one view, with closable and reorderable document tabs."
  },
  {
   "slug": "textarea",
   "title": "Textarea",
   "group": "Inputs",
-  "description": "Several lines of text that grow.",
-  "source": "quartz"
+  "description": "Several lines of text that grow."
  },
  {
   "slug": "timeline",
   "title": "Timeline",
   "group": "Data",
-  "description": "Shows when each step of a run started and how long it took, with the slow and failed ones marked.",
-  "source": "quartz"
+  "description": "Shows when each step of a run started and how long it took, with the slow and failed ones marked."
  },
  {
   "slug": "toast",
   "title": "Toast",
   "group": "Feedback",
-  "description": "Confirms an action or reports a background event, then leaves.",
-  "source": "quartz"
+  "description": "Confirms an action or reports a background event, then leaves."
  },
  {
   "slug": "tool-call",
   "title": "Tool call",
   "group": "AI",
-  "description": "One call with its name, arguments, status, duration and output.",
-  "source": "quartz"
+  "description": "One call with its name, arguments, status, duration and output."
  },
  {
   "slug": "tooltip",
   "title": "Tooltip",
   "group": "Overlays",
-  "description": "Names an icon button or shows a shortcut; never holds anything essential.",
-  "source": "quartz"
+  "description": "Names an icon button or shows a shortcut; never holds anything essential."
  },
  {
   "slug": "truncate",
   "title": "Truncate",
   "group": "Display",
-  "description": "Long IDs and text cut at the middle or the end, with the full value reachable.",
-  "source": "quartz"
+  "description": "Long IDs and text cut at the middle or the end, with the full value reachable."
  },
  {
   "slug": "page-header",
   "title": "Page header",
   "group": "Layout",
-  "description": "Title, description, stats and actions at the top of a page.",
-  "source": "quartz"
+  "description": "Title, description, stats and actions at the top of a page."
  },
  {
   "slug": "color-picker",
   "title": "Color picker",
   "group": "Controls",
-  "description": "A swatch that opens saturation, hue, hex, swatches and the eyedropper in a shadcn Popover.",
-  "source": "iota"
+  "description": "A swatch that opens saturation, hue, hex, swatches and the eyedropper in a shadcn Popover."
  },
  {
   "slug": "control-row",
   "title": "Control row",
   "group": "Controls",
-  "description": "A labelled panel row matching the sliders, for a swatch, toggle or select.",
-  "source": "iota"
+  "description": "A labelled panel row matching the sliders, for a swatch, toggle or select."
  },
  {
   "slug": "origin-wave",
   "title": "Origin wave",
   "group": "Feedback",
-  "description": "A dot grid that ripples out from its origin, iOTA's spinner.",
-  "source": "iota"
+  "description": "A dot grid that ripples out from its origin, iOTA's spinner."
  },
  {
   "slug": "pixel-title",
   "title": "Pixel title",
   "group": "Brand",
-  "description": "The wordmark types itself out, then letters keep morphing between Geist Pixel variants.",
-  "source": "iota"
+  "description": "The wordmark types itself out, then letters keep morphing between Geist Pixel variants."
  },
  {
   "slug": "scales",
   "title": "Scales",
   "group": "Layout",
-  "description": "A repeating line pattern for quiet texture behind a panel.",
-  "source": "iota"
+  "description": "A repeating line pattern for quiet texture behind a panel."
  },
  {
   "slug": "reveal",
   "title": "Reveal",
   "group": "Motion",
-  "description": "Fades a block up once it scrolls into view.",
-  "source": "iota"
+  "description": "Fades a block up once it scrolls into view."
  },
  {
   "slug": "faq",
   "title": "FAQ",
   "group": "Layout",
-  "description": "Single-open questions on shadcn Accordion, the open one on a soft panel.",
-  "source": "iota"
+  "description": "Single-open questions on shadcn Accordion, the open one on a soft panel."
  },
  {
   "slug": "chip",
   "title": "Chip",
   "group": "Display",
-  "description": "An interactive token: filter toggle, removable value or menu trigger.",
-  "source": "quartz"
+  "description": "An interactive token: filter toggle, removable value or menu trigger."
  },
  {
   "slug": "code-block",
   "title": "Code block",
   "group": "Code",
-  "description": "Highlighted code, one-line commands and inline code, with copy.",
-  "source": "quartz"
+  "description": "Highlighted code, one-line commands and inline code, with copy."
  },
  {
   "slug": "text-effects",
   "title": "Text effects",
   "group": "Motion",
-  "description": "Text that arrives or changes with motion: a cycling word, a typewriter line and a word-by-word reveal.",
-  "source": "iota"
+  "description": "Text that arrives or changes with motion: a cycling word, a typewriter line and a word-by-word reveal."
  }
 ]

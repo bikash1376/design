@@ -1,7 +1,6 @@
 ---
 name: Reveal
 system: iota
-source: iota
 kind: component
 import: "import {Reveal} from '@/components/iota-app/work/motion'"
 install: "npx shadcn@latest add {{SITE}}/r/reveal.json"

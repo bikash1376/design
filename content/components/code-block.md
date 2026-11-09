@@ -1,7 +1,6 @@
 ---
 name: Code block
 system: iota
-source: quartz
 kind: component
 import: "import {CodeBlock, Code, CopyCodeButton, MaskedKey, TokenLine, tokenize, parseLines, commandLines, codeVariants, refClass, matchClass, currentMatchClass, languageLabels} from '@/components/iota/ui/code-block'"
 install: "npx shadcn@latest add {{SITE}}/r/code-block.json"

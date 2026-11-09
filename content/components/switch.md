@@ -1,7 +1,6 @@
 ---
 name: Switch
 system: iota
-source: quartz
 kind: component
 import: "import {Switch} from '@/components/iota/ui/switch'"
 install: "npx shadcn@latest add {{SITE}}/r/switch.json"

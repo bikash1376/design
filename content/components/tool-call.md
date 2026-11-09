@@ -1,7 +1,6 @@
 ---
 name: Tool call
 system: iota
-source: quartz
 kind: component
 import: "import {splitForce, ToolCall, ToolCallGroup, ToolCallList, CappedOutput, DiffCount, toolCallsReducer, useToolCalls, groupToolCalls, registerTool, resolveTool, summarizeToolCalls, toolActivity, toolLabel, formatDuration, cleanOutput, isTerminal} from '@/components/iota/ai/tool-call'
 import {RequestTicker, RequestSummary, ShowMoreRow, summarizeRequests, codeClass} from '@/components/iota/ai/request-ticker'"

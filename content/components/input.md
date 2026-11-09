@@ -1,7 +1,6 @@
 ---
 name: Input
 system: iota
-source: quartz
 kind: component
 import: "import {Input, InputAction, InputControl, InputPrefix, InputRoot, InputSuffix, autoStep, generatePassword, maskSecret} from '@/components/iota/ui/input'"
 install: "npx shadcn@latest add {{SITE}}/r/input.json"

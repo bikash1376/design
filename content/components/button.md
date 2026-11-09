@@ -1,7 +1,6 @@
 ---
 name: Button
 system: iota
-source: quartz
 kind: component
 import: "import {Button, ButtonSize, buttonVariants, useNameCheck} from '@/components/iota/ui/button'"
 install: "npx shadcn@latest add {{SITE}}/r/button.json"
@@ -16,7 +15,7 @@ human: {{SITE}}/components/button
 Starts an action, like running an agent or saving a change.
 
 ## Variants
-- **Primary**: the one next step in a view, in brand blue.
+- **Primary**: the one next step in a view, in brand blue. Its inset edge stays on at rest, on hover and with a menu open.
 - **Secondary**: the quiet default beside it.
 - **Ghost**: no surface until hover, for skipping or stepping aside.
 - **With icon**: an icon on the left of the label. Copy is this, and its label morphs when it confirms.

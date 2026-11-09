@@ -319,4 +319,4 @@ Read {{SITE}}/foundations/motion.md before animating. Short form: transform and 
 `npx shadcn@latest add {{SITE}}/r/<name>.json`, the name being the last part of its page link.
 
 ## Credits
-The system's component architecture, rule format and many rules are adapted from Quartz by Arlan Marat (https://design.how/systems/quartz), MIT licensed.
+Adapted from work by Arlan Marat, MIT licensed. See NOTICE.md.

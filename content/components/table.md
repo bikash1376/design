@@ -1,7 +1,6 @@
 ---
 name: Table
 system: iota
-source: quartz
 kind: component
 import: "import {Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption, TableEmpty, TableFrameHeader, TableToolbar, tableFrameClassName, tableRowClassName, TableRowActions, TableRowAction, TableRowActionsMenu, TableRowActionsItem, TableRowActionsSeparator, DataTable, DataTableCheckbox, DataTableColumnHeader, DataTableColumnsMenu, selectColumn, severitySort, statusSeverity, useWindowedRows} from '@/components/iota/ui/table'"
 install: "npx shadcn@latest add {{SITE}}/r/table.json"

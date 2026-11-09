@@ -3,14 +3,14 @@
 //   /r/<slug>.json  /r/theme.json  /r/registry.json  /llms.txt
 //   /.well-known/agent-skills/index.json + <name>.tar.gz
 //   /.well-known/skills/index.json + files
-// Run automatically before dev and build. Set SITE_URL before deploying.
+// Run automatically before dev and build.
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import zlib from "node:zlib";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
-const SITE = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+const SITE = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://design.useiota.space").replace(/\/$/, "");
 const PUB = path.join(ROOT, "public");
 const CONTENT = path.join(ROOT, "content");
 const site = (s) => s.replace(/\{\{SITE\}\}/g, SITE);
@@ -36,6 +36,10 @@ const catalog = JSON.parse(fs.readFileSync(path.join(CONTENT, "catalog.json"), "
   }
   const skill = fs.readFileSync(path.join(CONTENT, "skills/iota/SKILL.md"), "utf8");
   for (const s of slugs) if (!skill.includes(`/components/${s}.md`)) problems.push(`missing from the iota skill: ${s}`);
+  // Nothing published may name the old source or a local address.
+  for (const f of [...walk(CONTENT), ...walk(path.join(ROOT, "components/iota")), ...walk(path.join(ROOT, "components/iota-app"))].filter((x) => /\.(md|mjs|tsx?|css|json)$/.test(x))) {
+    if (/qu[a]rtz|design[.]how|localhost:[3]000/i.test(fs.readFileSync(f, "utf8"))) problems.push(`banned mention in ${path.relative(ROOT, f)}`);
+  }
   if (problems.length) throw new Error("Content check failed:\n" + problems.join("\n"));
 }
 
@@ -67,6 +71,7 @@ const tar = (entries) => {
   blocks.push(Buffer.alloc(1024));
   return zlib.gzipSync(Buffer.concat(blocks), { mtime: 0 });
 };
+fs.rmSync(path.join(ROOT, "skills"), { recursive: true, force: true });
 const agentIndex = [];
 const legacyIndex = [];
 for (const name of skillDirs) {
@@ -78,6 +83,9 @@ for (const name of skillDirs) {
   });
   for (const [rel, data] of entries) {
     put(`skills/${name}/${rel}`, data);
+    const repoCopy = path.join(ROOT, "skills", name, rel);
+    fs.mkdirSync(path.dirname(repoCopy), { recursive: true });
+    fs.writeFileSync(repoCopy, data);
     put(`.well-known/skills/${name}/${rel}`, data);
   }
   const md = entries.find(([r]) => r === "SKILL.md")[1].toString();
@@ -176,7 +184,7 @@ for (const c of catalog) {
   const { files: _f, ...summary } = item;
   items.push(summary);
 }
-const themeFiles = ["tokens.css", "base.css", "styles.css", "lib/utils.ts", "LICENSE-QUARTZ.md"].map((f) => path.join(ROOT, "components/iota", f));
+const themeFiles = ["tokens.css", "base.css", "styles.css", "lib/utils.ts", "THIRD_PARTY_NOTICES.md"].map((f) => path.join(ROOT, "components/iota", f));
 const skillMd = site(fs.readFileSync(path.join(CONTENT, "skills/iota/SKILL.md"), "utf8"));
 put("r/theme.json", JSON.stringify({
   $schema: "https://ui.shadcn.com/schema/registry-item.json",
@@ -191,6 +199,21 @@ put("r/theme.json", JSON.stringify({
     { path: "skills/iota/SKILL.md", type: "registry:file", target: ".claude/skills/iota/SKILL.md", content: skillMd },
   ],
   docs: `Add @import "@/components/iota/styles.css"; to your global CSS after Tailwind, and put class="iota" on <body>.`,
+}));
+put("r/lint.json", JSON.stringify({
+  $schema: "https://ui.shadcn.com/schema/registry-item.json",
+  name: "lint",
+  type: "registry:lib",
+  title: "iOTA lint",
+  description: "ESLint rules that enforce the iOTA tokens and components.",
+  author: "iOTA",
+  dependencies: ["@typescript-eslint/parser"],
+  files: fs.readdirSync(path.join(ROOT, "components/iota/lint")).map((f) => ({
+    path: `components/iota/lint/${f}`,
+    type: "registry:file",
+    target: f === "eslint.config.mjs" ? "iota.eslint.config.mjs" : `lib/iota/lint/${f}`,
+    content: fs.readFileSync(path.join(ROOT, "components/iota/lint", f), "utf8"),
+  })),
 }));
 put("r/registry.json", JSON.stringify({ $schema: "https://ui.shadcn.com/schema/registry.json", name: "iota", homepage: SITE, items }, null, 2));
 

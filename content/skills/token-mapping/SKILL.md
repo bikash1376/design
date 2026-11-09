@@ -41,4 +41,4 @@ Stop and report on these only. No list exists. One name has two values in the sa
 Every row has a job, a class and a reason. Every ambiguous row names two or more candidates. Nothing in the repo changed (`git status` is the same before and after). The last line reads `Coverage:`.
 
 ## Credits
-Adapted from the token-mapping skill by Arlan Marat (https://github.com/arla6ka/design.how), MIT licensed.
+Adapted from work by Arlan Marat, MIT licensed. See NOTICE.md.

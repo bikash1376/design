@@ -1,7 +1,6 @@
 ---
 name: Skeleton
 system: iota
-source: quartz
 kind: component
 import: "import {Skeleton, SkeletonText, SkeletonSwap} from '@/components/iota/ui/skeleton'"
 install: "npx shadcn@latest add {{SITE}}/r/skeleton.json"

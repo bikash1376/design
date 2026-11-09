@@ -45,4 +45,4 @@ A props type with no variant prop is an empty list. Variants reads "None" and th
 Every variant, prop, token and example has a Sources line. Every Usage rule has evidence and a `Don't:` line. Every conflict is shown. The nine headings are present in order, and a section with nothing sourced reads `Not applicable: <reason>`.
 
 ## Credits
-Adapted from the component-docs skill by Arlan Marat (https://github.com/arla6ka/design.how), MIT licensed.
+Adapted from work by Arlan Marat, MIT licensed. See NOTICE.md.

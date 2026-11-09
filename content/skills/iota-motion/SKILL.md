@@ -42,6 +42,9 @@ Exits run faster than entrances. Never use `ease-in` on UI: it delays the first 
 10. motion-hover-fine MUST Wrap hover motion in `@media (hover: hover) and (pointer: fine)`. Because on touch a hover state sticks after the tap.
 11. motion-drag-spring SHOULD Capture the pointer during a drag, treat under 4px as a click, carry the release velocity, and damp past bounds. Because a drag should feel like an object.
 
+## Scrollbars
+Scrollbars are 2px, appear while scrolling and fade a second after it stops. `IotaPortalProvider` handles this for the whole app.
+
 ## Stack
 - Motion for shared layout, springs and presence.
 - CSS for the float, press and hover.

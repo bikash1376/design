@@ -48,4 +48,4 @@ Run on its own, save the report to `.ui-review/<date>-<flow>.md` with captures b
 Every finding has a criterion, a location, evidence and only the widths where it shows. Every probe has a result or a reason. The first line, the ship line and the summary agree. The last line reads `Coverage:` with the routes, widths, themes and probes measured, then what was not.
 
 ## Credits
-Adapted from the ui-review skill by Arlan Marat (https://github.com/arla6ka/design.how), MIT licensed.
+Adapted from work by Arlan Marat, MIT licensed. See NOTICE.md.

@@ -1,7 +1,6 @@
 ---
 name: Activity
 system: iota
-source: quartz
 kind: component
 import: "import {Activity, ActivityText, ActivityGroup, Disclosure, StepGlyph, pastTense, joinSummary, pickActivity, useAntiFlicker, useHeldPhrase, MIN_DISPLAY, activityVariants, rowVariants} from '@/components/iota/ai/activity'"
 install: "npx shadcn@latest add {{SITE}}/r/activity.json"

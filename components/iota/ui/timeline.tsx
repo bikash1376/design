@@ -205,7 +205,7 @@ function Timeline({label, spans, now, activeId, onSpanClick, kind, maxHeight, lo
         ref={scrollRef}
         role={onSpanClick ? 'listbox' : 'list'}
         aria-label={`Steps in ${label}`}
-        className="relative overflow-auto overscroll-contain [scrollbar-width:thin]"
+        className="relative overflow-auto overscroll-contain"
         style={maxHeight ? {maxHeight} : undefined}
       >
         {loading

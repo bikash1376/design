@@ -1,7 +1,6 @@
 ---
 name: Tabs
 system: iota
-source: quartz
 kind: component
 import: "import {Tabs, TabsList, TabsTrigger, TabsContent, TabsCount, tabsListVariants} from '@/components/iota/ui/tabs'"
 install: "npx shadcn@latest add {{SITE}}/r/tabs.json"

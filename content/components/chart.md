@@ -1,7 +1,6 @@
 ---
 name: Chart
 system: iota
-source: quartz
 kind: component
 import: "import {Chart, unitFormat, ChartContainer, ChartPlot, ChartSwatch, WithChart, useChart, useOptionalChart, useElementWidth, useElementDirection, useRovingPoints, seriesTone, inkSteps, niceScale, formatCompact, numberAt, ChartTooltip, ChartTooltipContent, ChartTooltipRow, ChartDataTable, ChartLegend, chartLegendVariants, LineChart, monotonePath, linearPath, stepPath, BarChart, Sparkline, sparklineVariants, StatusBar, statusBarVariants, ChartFrame, chartFrameVariants} from '@/components/iota/ui/chart'"
 install: "npx shadcn@latest add {{SITE}}/r/chart.json"

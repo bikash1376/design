@@ -236,7 +236,7 @@ function ConversationViewport({className, 'aria-label': ariaLabel = 'Conversatio
       aria-busy={status === 'streaming' || undefined}
       tabIndex={0}
       className={cn(
-        'size-full min-h-0 min-w-0 overflow-y-auto overscroll-contain [overflow-anchor:none] [scrollbar-gutter:stable] [scrollbar-width:thin] focus-visible:focus-ring-inset',
+        'size-full min-h-0 min-w-0 overflow-y-auto overscroll-contain [overflow-anchor:none] [scrollbar-gutter:stable] focus-visible:focus-ring-inset',
         className,
       )}
       {...props}

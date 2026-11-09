@@ -1,7 +1,6 @@
 ---
 name: Timeline
 system: iota
-source: quartz
 kind: component
 import: "import {Timeline} from '@/components/iota/ui/timeline'"
 install: "npx shadcn@latest add {{SITE}}/r/timeline.json"

@@ -25,6 +25,15 @@ const CULL_MARGIN = 360;
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
+// The canvas outline with a soft notch cut from its top-right corner for the X link.
+export const NOTCH = 52;
+function notchedOutline(w: number, h: number) {
+  const R = 16; // outer corners
+  const r = 14; // every curve of the notch
+  const n = NOTCH;
+  return `path("M ${R} 0 H ${w - n - r} A ${r} ${r} 0 0 1 ${w - n} ${r} V ${n - r} A ${r} ${r} 0 0 0 ${w - n + r} ${n} H ${w - r} A ${r} ${r} 0 0 1 ${w} ${n + r} V ${h - R} A ${R} ${R} 0 0 1 ${w - R} ${h} H ${R} A ${R} ${R} 0 0 1 0 ${h - R} V ${R} A ${R} ${R} 0 0 1 ${R} 0 Z")`;
+}
+
 // The selection box: a design-tool bounding box hugging what actually rendered, with its
 // measured size in a pill below. --z (set from the zoom) keeps its weight constant at any zoom.
 function SelectionBox({ surface, bare }: { surface: React.RefObject<HTMLDivElement | null>; bare?: boolean }) {
@@ -173,6 +182,7 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
   const router = useRouter();
   const reduce = useReducedMotion();
   const viewport = useRef<HTMLDivElement>(null);
+  const shadowShape = useRef<HTMLDivElement>(null);
   const size = useRef({ w: 1100, h: 800 });
 
   const x = useMotionValue(550);
@@ -266,6 +276,8 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     const el = viewport.current;
     if (!el) return;
     size.current = { w: el.clientWidth, h: el.clientHeight };
+    el.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
+    if (shadowShape.current) shadowShape.current.style.clipPath = el.style.clipPath;
     const node = selectedKey ? NODES.find((n) => n.slug === selectedKey) : null;
     if (node) centerOn(node, true);
     else moveTo(el.clientWidth / 2, el.clientHeight / 2, 1, true);
@@ -276,6 +288,8 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     const t = setTimeout(() => setEnteredDone(true), 1400);
     const ro = new ResizeObserver(() => {
       size.current = { w: el.clientWidth, h: el.clientHeight };
+      el.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
+    if (shadowShape.current) shadowShape.current.style.clipPath = el.style.clipPath;
       refreshLive();
     });
     ro.observe(el);
@@ -442,6 +456,12 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
   }, []);
 
   return (
+    <>
+    {/* The clip path would cut a box-shadow off, so a still copy of the shape carries a drop-shadow.
+        It sits outside the moving canvas, so panning and floating never repaint the shadow. */}
+    <div aria-hidden className="canvas-shadow pointer-events-none absolute inset-0">
+      <div ref={shadowShape} className="size-full rounded-2xl bg-(--canvas-bg)" />
+    </div>
     <div
       ref={viewport}
       role="application"
@@ -497,5 +517,6 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
         </button>
       </div>
     </div>
+    </>
   );
 }

@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cf-build": "node scripts/cf-build.mjs",
+    "cf-deploy": "node scripts/cf-build.mjs && wrangler deploy"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -49,6 +51,7 @@
     "eslint": "^10.14.0",
     "eslint-config-next": "16",
     "tailwindcss": "^4.3.5",
-    "typescript": "5"
+    "typescript": "5",
+    "wrangler": "^4.158.0"
   }
 }

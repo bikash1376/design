@@ -1,7 +1,6 @@
 ---
 name: Stat
 system: iota
-source: quartz
 kind: component
 import: "import {Stat, StatGroup, StatLabel, StatValue, StatUnit, StatDelta, StatDescription, StatTrend, StatRow, statVariants, deltaOf} from '@/components/iota/ui/stat'"
 install: "npx shadcn@latest add {{SITE}}/r/stat.json"

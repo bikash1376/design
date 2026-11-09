@@ -1,7 +1,6 @@
 ---
 name: Control row
 system: iota
-source: iota
 kind: component
 import: "import {ControlRow} from '@/components/iota-app/playground/control-row'"
 install: "npx shadcn@latest add {{SITE}}/r/control-row.json"

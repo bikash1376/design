@@ -1,7 +1,6 @@
 ---
 name: Log viewer
 system: iota
-source: quartz
 kind: component
 import: "import {LogViewer} from '@/components/iota/ui/log-viewer'"
 install: "npx shadcn@latest add {{SITE}}/r/log-viewer.json"

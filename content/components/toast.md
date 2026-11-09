@@ -1,7 +1,6 @@
 ---
 name: Toast
 system: iota
-source: quartz
 kind: component
 import: "import {Toaster, toast, toastManager, readingTimeout} from '@/components/iota/ui/toast'"
 install: "npx shadcn@latest add {{SITE}}/r/toast.json"

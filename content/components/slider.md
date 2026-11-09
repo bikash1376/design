@@ -1,7 +1,6 @@
 ---
 name: Slider
 system: iota
-source: quartz
 kind: component
 import: "import {Slider} from '@/components/iota/ui/slider'"
 install: "npx shadcn@latest add {{SITE}}/r/slider.json"

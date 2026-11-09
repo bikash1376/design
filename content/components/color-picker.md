@@ -1,7 +1,6 @@
 ---
 name: Color picker
 system: iota
-source: iota
 kind: component
 import: "import {ColorSwatch} from '@/components/iota-app/ui/color-picker'"
 install: "npx shadcn@latest add {{SITE}}/r/color-picker.json"

@@ -1,7 +1,6 @@
 ---
 name: Message
 system: iota
-source: quartz
 kind: component
 import: "import {MessageGroup, Message, AgentTurn, MessageAvatar, MessageAgentAvatar, MessageContent, MessageHeader, MessageMeta, MessageTime, MessageModel, MessageStatus, MessageFooter, MessageWorked, MessageBubble, MessageBubbleContent, MessageReactions, MessageSendState, MessageDivider, MessageDividerIcon, messageVariants, bubbleVariants, dividerVariants} from '@/components/iota/ai/message'"
 install: "npx shadcn@latest add {{SITE}}/r/message.json"

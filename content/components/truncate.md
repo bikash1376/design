@@ -1,7 +1,6 @@
 ---
 name: Truncate
 system: iota
-source: quartz
 kind: component
 import: "import {Truncate, TextHint, textHintClass, splitTail} from '@/components/iota/ui/truncate'"
 install: "npx shadcn@latest add {{SITE}}/r/truncate.json"

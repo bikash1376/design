@@ -1,7 +1,6 @@
 ---
 name: Alert
 system: iota
-source: quartz
 kind: component
 import: "import {Alert, AlertTitle, AlertDescription, AlertAction, AlertClose, alertVariants} from '@/components/iota/ui/alert'"
 install: "npx shadcn@latest add {{SITE}}/r/alert.json"

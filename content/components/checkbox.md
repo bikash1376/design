@@ -1,7 +1,6 @@
 ---
 name: Checkbox
 system: iota
-source: quartz
 kind: component
 import: "import {Checkbox, CheckboxGroup} from '@/components/iota/ui/checkbox'"
 install: "npx shadcn@latest add {{SITE}}/r/checkbox.json"

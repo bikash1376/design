@@ -1,7 +1,6 @@
 ---
 name: Textarea
 system: iota
-source: quartz
 kind: component
 import: "import {Textarea} from '@/components/iota/ui/textarea'"
 install: "npx shadcn@latest add {{SITE}}/r/textarea.json"

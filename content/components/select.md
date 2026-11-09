@@ -1,7 +1,6 @@
 ---
 name: Select
 system: iota
-source: quartz
 kind: component
 import: "import {NativeSelect, NativeSelectOptGroup, NativeSelectOption, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue, listPopupClassName, listItemClassName, listGroupLabelClassName, listSeparatorClassName, fieldTriggerClassName} from '@/components/iota/ui/select'"
 install: "npx shadcn@latest add {{SITE}}/r/select.json"

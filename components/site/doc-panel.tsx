@@ -91,7 +91,7 @@ function AgentView({ raw, file, href }: { raw: string; file: string; href: strin
           <TextMorph duration={260} ease="cubic-bezier(0.23, 1, 0.32, 1)">{copied ? "Copied" : "Copy"}</TextMorph>
         </button>
       </div>
-      <pre className="font-mono text-[11px] leading-[17px] break-words whitespace-pre-wrap">
+      <pre className="rounded-xl bg-panel p-3 font-mono text-[11px] leading-[17px] break-words whitespace-pre-wrap">
         {lines.map(({ line, cls }, i) => (
           <span key={i} className={`block min-h-[17px] ${cls}`}>
             {line}

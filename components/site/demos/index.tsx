@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentType } from "react";
-import * as Q from "./quartz";
+import * as Q from "./system";
 import * as I from "./iota";
 import * as L from "./live";
 

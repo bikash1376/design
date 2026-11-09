@@ -1,7 +1,6 @@
 ---
 name: FAQ
 system: iota
-source: iota
 kind: component
 import: "import {Faq} from '@/components/iota-app/work/faq'"
 install: "npx shadcn@latest add {{SITE}}/r/faq.json"

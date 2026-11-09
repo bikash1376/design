@@ -1,7 +1,6 @@
 ---
 name: Radio group
 system: iota
-source: quartz
 kind: component
 import: "import {RadioGroup, RadioGroupItem, RadioGroupOption} from '@/components/iota/ui/radio-group'"
 install: "npx shadcn@latest add {{SITE}}/r/radio-group.json"

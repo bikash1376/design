@@ -3,8 +3,9 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { XLogoIcon } from "@phosphor-icons/react";
 import { PixelTitle } from "@/components/iota-app/pixel-title";
-import { Canvas } from "./canvas";
+import { Canvas, NOTCH } from "./canvas";
 import { CommandMenu, type NavIndex } from "./command-menu";
 
 type View = "me" | "agent";
@@ -65,6 +66,17 @@ export function Shell({ children, index }: { children: ReactNode; index: NavInde
         </aside>
         <main className="relative min-h-0 flex-1 max-md:basis-[46%] max-md:flex-none">
           <Canvas selected={selected} dimAll={inDoc && !selected} />
+          <div className="absolute top-0 right-0 grid place-items-center" style={{ width: NOTCH, height: NOTCH }}>
+            <a
+              href="https://x.com/bikash1376"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Bikash on X"
+              className="grid size-10 place-items-center rounded-xl text-text-2 transition-[background-color,color,scale] duration-150 hover:bg-panel hover:text-foreground active:scale-[0.97]"
+            >
+              <XLogoIcon size={18} />
+            </a>
+          </div>
         </main>
       </div>
     </ViewContext.Provider>

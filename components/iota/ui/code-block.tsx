@@ -270,7 +270,7 @@ function FileBlock({code = '', language = 'text', filename, header = true, lineN
       role="region"
       aria-label={name}
       dir="ltr"
-      className={cn('well relative min-h-0 overflow-auto py-3 text-(--code-text) focus-visible:focus-ring-inset [scrollbar-width:thin]', !header && 'pe-10')}
+      className={cn('well relative min-h-0 overflow-auto py-3 text-(--code-text) focus-visible:focus-ring-inset', !header && 'pe-10')}
       style={maxHeight ? {maxHeight} : undefined}
     >
       <pre className={cn('type-code', wrap ? 'w-full' : 'w-max min-w-full')}>
@@ -346,7 +346,7 @@ function CommandBlock({code, command, prompt = '$', secret, defaultRevealed = fa
       role="region"
       aria-label={commands.length > 1 ? 'Commands' : 'Command'}
       dir="ltr"
-      className="relative min-w-0 flex-1 overflow-auto outline-offset-0 [scrollbar-width:thin] fade-x"
+      className="relative min-w-0 flex-1 overflow-auto outline-offset-0 fade-x"
       style={maxHeight ? {maxHeight} : undefined}
     >
       <pre className="w-max min-w-full">

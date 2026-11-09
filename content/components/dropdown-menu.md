@@ -1,7 +1,6 @@
 ---
 name: Dropdown menu
 system: iota
-source: quartz
 kind: component
 import: "import {ExportMenu} from '@/components/iota-app/ui/export-menu'; import {DropdownMenu, DropdownMenuPortal, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel, DropdownMenuItem, DropdownMenuLinkItem, DropdownMenuCheckboxItem, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent, menuPopupClass, menuItemClass, menuCheckItemClass, menuLabelClass, menuSeparatorClass, menuShortcutClass} from '@/components/iota/ui/dropdown-menu'"
 install: "npx shadcn@latest add {{SITE}}/r/dropdown-menu.json"

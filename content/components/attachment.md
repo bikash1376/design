@@ -1,7 +1,6 @@
 ---
 name: Attachment
 system: iota
-source: quartz
 kind: component
 import: "import {Attachment, AttachmentGroup, AttachmentMedia, AttachmentContent, AttachmentTitle, AttachmentDescription, AttachmentProgress, AttachmentActions, AttachmentAction, AttachmentTrigger, AttachmentGlyph, AttachmentDrop, AttachmentDropIcon, AttachmentDropTitle, AttachmentDropDescription, AttachmentDropTrigger, AttachmentTile, attachmentVariants, attachmentDropVariants, attachmentTileVariants, fileGlyph, formatBytes, formatProgress, rejectionReason, acceptTokens, dragVerdict, describeAccept, useAttachmentDrop} from '@/components/iota/ui/attachment'"
 install: "npx shadcn@latest add {{SITE}}/r/attachment.json"

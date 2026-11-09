@@ -1,7 +1,6 @@
 ---
 name: Progress
 system: iota
-source: quartz
 kind: component
 import: "import {Progress, ProgressLabel, ProgressValue, ProgressRing, ProgressSteps, ProgressStep, ProgressStepTrigger, ProgressStepIndicator, ProgressStepTitle, ProgressStepDescription, ProgressStepText, ProgressStepSeparator, ProgressItem, ProgressList, meterStatus} from '@/components/iota/ui/progress'"
 install: "npx shadcn@latest add {{SITE}}/r/progress.json"

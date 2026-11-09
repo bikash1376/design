@@ -1,7 +1,6 @@
 ---
 name: Data grid
 system: iota
-source: quartz
 kind: component
 import: "import {DataGrid, DataGridTable, DataGridHeader, DataGridBody, DataGridRow, DataGridHead, DataGridCell, DataGridHelp, useDataGrid, formatCellValue, parseCellValue} from '@/components/iota/ui/data-grid'"
 install: "npx shadcn@latest add {{SITE}}/r/data-grid.json"

@@ -1,7 +1,6 @@
 ---
 name: Pagination
 system: iota
-source: quartz
 kind: component
 import: "import {Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaginationInfo, PaginationNav, paginationRange} from '@/components/iota/ui/pagination'"
 install: "npx shadcn@latest add {{SITE}}/r/pagination.json"

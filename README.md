@@ -11,7 +11,7 @@ bun run dev
 
 ## Deploy
 
-Set `SITE_URL` (and `NEXT_PUBLIC_SITE_URL`) to the deployed origin before building. Install commands, skill files and registry items all embed it.
+`bun run cf-deploy` builds the static site and deploys it to Cloudflare at design.useiota.space.
 
 ## Endpoints
 
@@ -31,11 +31,12 @@ Generated into `public/` by `scripts/build-endpoints.mjs`, which runs before `de
 ## Layout
 
 - `components/ui`: stock shadcn on Base UI
-- `components/iota`: the design system, adapted from Quartz
+- `components/iota`: the design system
 - `components/iota-app`: components from the iOTA app, wrapping shadcn primitives
 - `components/site`: this site's canvas and panels
 - `content`: docs and skills in Markdown
+- `skills`: generated copy of the skills with real URLs, for `npx skills add bikash1376/design`
 
 ## Credits
 
-Component architecture, rule format and several skills are adapted from [Quartz](https://design.how/systems/quartz) by Arlan Marat, MIT licensed. See `components/iota/LICENSE-QUARTZ.md`.
+Adapted in part from work by Arlan Marat, MIT licensed. See `components/iota/THIRD_PARTY_NOTICES.md`.

@@ -1,7 +1,6 @@
 ---
 name: Item
 system: iota
-source: quartz
 kind: component
 import: "import {Item, ItemMedia, ItemContent, ItemActions, ItemLink, ItemGroup, ItemSeparator, ItemTitle, ItemDescription, ItemMeta, ItemStatus, ItemHeader, ItemFooter, itemVariants} from '@/components/iota/ui/item'"
 install: "npx shadcn@latest add {{SITE}}/r/item.json"

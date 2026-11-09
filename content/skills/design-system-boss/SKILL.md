@@ -53,4 +53,4 @@ Cite `migrate-design-system`'s lessons by number in every brief that touches the
 The playbook's last step has returned, every number in the report comes from a command run at close, and the final message opens with unanswered defaults, then what changed, then one ranked table of what was found and not fixed (30 rows at most). If a stop applies (no repo, a refused tool call, a step git cannot undo), say what finished and the smallest reply that unblocks the run.
 
 ## Credits
-Adapted from the design-system-boss skill by Arlan Marat (https://github.com/arla6ka/design.how), MIT licensed.
+Adapted from work by Arlan Marat, MIT licensed. See NOTICE.md.

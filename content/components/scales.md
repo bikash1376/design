@@ -1,7 +1,6 @@
 ---
 name: Scales
 system: iota
-source: iota
 kind: component
 import: "import {Scales, ScalesContainer} from '@/components/iota-app/ui/scales'"
 install: "npx shadcn@latest add {{SITE}}/r/scales.json"

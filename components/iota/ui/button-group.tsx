@@ -22,8 +22,8 @@ const buttonGroupVariants = cva(
   {
     variants: {
       orientation: {
-        horizontal: '[&>:not([data-variant=primary],[data-slot=button-group-separator])]:frame-shared *:data-[variant=primary]:first:rounded-s-soft! *:data-[variant=primary]:last:rounded-e-soft!',
-        vertical: 'flex-col [&>:not([data-variant=primary],[data-slot=button-group-separator])]:frame-shared-y *:data-[variant=primary]:first:rounded-t-soft! *:data-[variant=primary]:last:rounded-b-soft!',
+        horizontal: '[&>:not([data-variant=primary],[data-slot=button-group-separator])]:frame-shared *:data-[variant=primary]:first:rounded-s-soft! *:data-[variant=primary]:last:rounded-e-soft! *:data-[slot=button-group-menu-trigger]:data-[variant=primary]:rounded-e-soft!',
+        vertical: 'flex-col [&>:not([data-variant=primary],[data-slot=button-group-separator])]:frame-shared-y *:data-[variant=primary]:first:rounded-t-soft! *:data-[variant=primary]:last:rounded-b-soft! *:data-[slot=button-group-menu-trigger]:data-[variant=primary]:rounded-b-soft!',
       },
     },
     defaultVariants: {orientation: 'horizontal'},

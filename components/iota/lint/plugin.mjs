@@ -1,6 +1,6 @@
 import {createPlugin} from './core.mjs';
 
-const SITE = 'https://design.how/systems/iota';
+const SITE = 'https://design.useiota.space';
 const FOUNDATIONS = ['anti-slop', 'color', 'typography', 'elevation', 'radius', 'iconography', 'motion', 'space', 'borders-and-lines', 'grid'];
 const COMPONENTS = ['button', 'field', 'skeleton', 'dialog', 'link', 'status', 'badge', 'empty-state', 'alert', 'card'];
 

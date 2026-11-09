@@ -1,7 +1,6 @@
 ---
 name: Kbd
 system: iota
-source: quartz
 kind: component
 import: "import {Kbd, KbdGroup, shortcut} from '@/components/iota/ui/kbd'"
 install: "npx shadcn@latest add {{SITE}}/r/kbd.json"

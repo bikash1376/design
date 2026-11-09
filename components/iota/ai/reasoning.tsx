@@ -172,7 +172,7 @@ function ReasoningContent({className, children, ...props}: React.ComponentProps<
       aria-busy={streaming || undefined}
       tabIndex={tabStop}
       className={cn(
-        'max-h-40 min-w-0 overflow-y-auto ps-6 pb-3 type-body-sm text-text-2 [scrollbar-width:thin]',
+        'max-h-40 min-w-0 overflow-y-auto ps-6 pb-3 type-body-sm text-text-2',
         'focus-visible:focus-ring-inset',
         className,
       )}

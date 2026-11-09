@@ -1,7 +1,6 @@
 ---
 name: Reasoning
 system: iota
-source: quartz
 kind: component
 import: "import {Reasoning, ReasoningTrigger, ReasoningContent, reasoningHeading} from '@/components/iota/ai/reasoning'"
 install: "npx shadcn@latest add {{SITE}}/r/reasoning.json"

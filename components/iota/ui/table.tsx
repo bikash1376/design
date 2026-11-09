@@ -838,7 +838,7 @@ function DataTable<TData>({
       tabIndex={scrollTab}
       role={scrollTab === 0 ? 'region' : undefined}
       aria-label={scrollTab === 0 ? ariaLabel : undefined}
-      className={cn('relative overflow-auto overscroll-contain focus-visible:focus-ring-inset [scrollbar-width:thin] w-full')}
+      className={cn('relative overflow-auto overscroll-contain focus-visible:focus-ring-inset w-full')}
       style={{maxHeight}}
     >
       <table

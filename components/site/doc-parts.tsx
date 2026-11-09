@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { TextMorph } from "torph/react";
 import { CaretRightIcon, CheckIcon, CopyIcon } from "@phosphor-icons/react";
@@ -83,6 +83,29 @@ export function Fold({ title, count, children }: { title: string; count: string;
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+}
+
+// Scrolls inside itself and fills what is left of the panel, so everything above it stays put.
+// The 84px clears the me | agent switch and the padding under the panel's content.
+export function PanelScroll({ children, className }: { children: ReactNode; className?: string }) {
+  const box = useRef<HTMLDivElement>(null);
+  const [maxHeight, setMaxHeight] = useState<number>();
+  useLayoutEffect(() => {
+    const fit = () => {
+      const el = box.current;
+      const panel = el?.closest("aside");
+      if (!el || !panel) return;
+      setMaxHeight(Math.max(160, panel.getBoundingClientRect().bottom - el.getBoundingClientRect().top - 84));
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, []);
+  return (
+    <div ref={box} data-lenis-prevent style={{ maxHeight }} className={cn("thin-scrollbar overflow-y-auto overscroll-contain", className)}>
+      {children}
     </div>
   );
 }

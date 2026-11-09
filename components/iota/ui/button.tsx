@@ -14,7 +14,7 @@ const buttonVariants = cva(
     'type-label transition-[background-color,color,scale,outline-color,box-shadow] duration-(--dur-fast) ease-(--ease-step) [-webkit-tap-highlight-color:transparent]',
     'active:not-data-disabled:scale-98 active:duration-(--dur-press) motion-reduce:scale-none!',
     'data-disabled:not-aria-busy:text-text-disabled data-disabled:not-aria-busy:cursor-not-allowed aria-busy:cursor-progress',
-    'data-pressed:not-data-disabled:bg-inverse data-pressed:not-data-disabled:text-brand-foreground data-pressed:not-data-disabled:shadow-none data-pressed:hover:not-data-disabled:bg-button-primary-hover',
+    'data-pressed:not-data-disabled:bg-button-primary-hover data-pressed:not-data-disabled:text-brand-foreground data-pressed:hover:not-data-disabled:bg-button-primary-hover',
     'data-disabled:data-pressed:bg-pressed',
     'forced-colors:border forced-colors:border-solid forced-colors:border-[ButtonText]',
     'forced-colors:data-disabled:not-aria-busy:border-[GrayText] forced-colors:data-disabled:not-aria-busy:text-[GrayText]',

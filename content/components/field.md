@@ -1,7 +1,6 @@
 ---
 name: Field
 system: iota
-source: quartz
 kind: component
 import: "import {Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormActions, FormStatus, Label, LabelHint, fieldBoxVariants, fieldControlVariants, labelClasses, useFieldDisabled} from '@/components/iota/ui/field'"
 install: "npx shadcn@latest add {{SITE}}/r/field.json"

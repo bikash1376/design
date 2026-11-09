@@ -21,7 +21,7 @@ Usage
   node capture.mjs --self-test | --help
 
   Example, with the app served on port 3000:
-  node capture.mjs --base http://localhost:3000 --kind before --out .design-system/captures \\
+  node capture.mjs --base http://localhost:5173 --kind before --out .design-system/captures \\
     --surfaces .design-system/surfaces.tsv --writes .design-system/writes.txt
 
 Routes

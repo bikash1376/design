@@ -1,7 +1,6 @@
 ---
 name: Card
 system: iota
-source: quartz
 kind: component
 import: "import {Card, CardHeader, CardTrigger, CardFooter, CardTitle, CardMeta, CardAction, CardDescription, CardContent, cardVariants} from '@/components/iota/ui/card'"
 install: "npx shadcn@latest add {{SITE}}/r/card.json"

@@ -237,8 +237,8 @@
     border: 1px solid var(--frame-color, var(--line-control)); border-inline-end-width: 0; border-radius: inherit;
   }
   &:first-child { border-start-start-radius: var(--radius-soft); border-end-start-radius: var(--radius-soft); }
-  &:last-child { border-start-end-radius: var(--radius-soft); border-end-end-radius: var(--radius-soft); }
-  &:last-child::before { border-inline-end-width: 1px; }
+  &:is(:last-child, [data-slot="button-group-menu-trigger"]) { border-start-end-radius: var(--radius-soft); border-end-end-radius: var(--radius-soft); }
+  &:is(:last-child, [data-slot="button-group-menu-trigger"])::before { border-inline-end-width: 1px; }
 }
 @utility frame-shared-y {
   position: relative;
@@ -248,8 +248,8 @@
     border: 1px solid var(--frame-color, var(--line-control)); border-block-end-width: 0; border-radius: inherit;
   }
   &:first-child { border-start-start-radius: var(--radius-soft); border-start-end-radius: var(--radius-soft); }
-  &:last-child { border-end-start-radius: var(--radius-soft); border-end-end-radius: var(--radius-soft); }
-  &:last-child::before { border-block-end-width: 1px; }
+  &:is(:last-child, [data-slot="button-group-menu-trigger"]) { border-end-start-radius: var(--radius-soft); border-end-end-radius: var(--radius-soft); }
+  &:is(:last-child, [data-slot="button-group-menu-trigger"])::before { border-block-end-width: 1px; }
 }
 @utility frame-ink {
   --frame-color: var(--ink);
@@ -273,10 +273,8 @@
 }
 @utility key-primary {
   background: var(--key-primary-body); box-shadow: var(--key-primary-edge);
-  &::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; background: var(--key-primary-body-hover); transition: opacity var(--dur-fast) var(--ease-step); }
-  &:hover:not([data-disabled])::before { opacity: 1; }
-  &[data-disabled]::before { display: none; }
-  @media (forced-colors: active) { &::before { display: none; } }
+  /* Hover changes the button's own fill: a layer on top would cover the inset edge. */
+  &:hover:not([data-disabled]) { background: var(--key-primary-body-hover); }
   &::after { background: var(--key-primary-sheen); }
   &:active:not([data-disabled]) { box-shadow: var(--key-primary-edge-press); }
 }
@@ -365,7 +363,6 @@
 @utility well { background-color: var(--surface-card); }
 @keyframes iota-slide { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
 @keyframes iota-spin { to { transform: rotate(1turn); } }
-.iota, .iota * { scrollbar-color: var(--scrollbar-thumb) transparent; }
 @keyframes iota-toast-drain { from { scale: 1 1; } to { scale: 0 1; } }
 @utility fade-y {
   &[data-fade="end"] { mask-image: linear-gradient(to bottom, black calc(100% - var(--fade-edge)), transparent); }

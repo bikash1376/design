@@ -2,7 +2,7 @@ import { ArrowSquareOutIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { SITE, tokenValues, type Doc } from "@/lib/docs";
 import { Md } from "./md";
-import { CopyLine, Fold, InstallPrompt } from "./doc-parts";
+import { CopyLine, Fold, InstallPrompt, PanelScroll } from "./doc-parts";
 
 function Heading({ title, description }: { title: string; description: string }) {
   return (
@@ -53,14 +53,14 @@ export function HumanDoc({ doc }: { doc: Doc }) {
       )}
       {tokens.length > 0 && (
         <Fold title="Tokens" count={`${tokens.length} ${tokens.length === 1 ? "token" : "tokens"}`}>
-          <div className="flex flex-col">
+          <PanelScroll className="flex flex-col rounded-xl bg-panel px-3 py-1">
             {tokens.map((t) => (
-              <div key={t} className="flex flex-col gap-0.5 border-b border-border py-1.5 last:border-0">
+              <div key={t} className="flex flex-col gap-0.5 border-b border-fill py-1.5 last:border-0">
                 <code className="font-mono text-[11px] text-foreground">{t}</code>
                 {values[t] && <code className="font-mono text-[11px] [overflow-wrap:anywhere] text-text-2">{values[t]}</code>}
               </div>
             ))}
-          </div>
+          </PanelScroll>
         </Fold>
       )}
     </div>

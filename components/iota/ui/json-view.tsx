@@ -196,7 +196,7 @@ function JsonView({data, defaultExpandDepth = 2, toolbar = true, copy = true, la
         {copy && <CopyCodeButton size="icon-xs" text={text} label="Copy JSON"/>}
       </div>
     </div>}
-    <div ref={bodyRef} data-slot="json-view-body" dir="ltr" tabIndex={bodyTab} role={bodyTab === 0 ? 'region' : undefined} aria-label={bodyTab === 0 ? label : undefined} className="well min-h-0 overflow-auto p-2 text-(--code-text) [container-type:inline-size] [scrollbar-width:thin]" style={{maxHeight}}>
+    <div ref={bodyRef} data-slot="json-view-body" dir="ltr" tabIndex={bodyTab} role={bodyTab === 0 ? 'region' : undefined} aria-label={bodyTab === 0 ? label : undefined} className="well min-h-0 overflow-auto p-2 text-(--code-text) [container-type:inline-size]" style={{maxHeight}}>
       {q && !matches.length
         ? <p className="flex flex-wrap items-center gap-1.5 px-2 py-4 type-body text-text-2">Nothing matches <CodeTag>{query.trim()}</CodeTag></p>
         : <div ref={treeRef} role="tree" aria-label={label} onKeyDown={onKeyDown} className="w-max min-w-full type-code">

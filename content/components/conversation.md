@@ -1,7 +1,6 @@
 ---
 name: Conversation
 system: iota
-source: quartz
 kind: component
 import: "import {Conversation, ConversationProvider, ConversationViewport, ConversationContent, ConversationItem, ConversationTail, ConversationJump, ConversationTimeline, ConversationRetry, ConversationError, useConversation, useStickToBottom, useStableRows, useCountdown, STICK, REATTACH} from '@/components/iota/ai/conversation'"
 install: "npx shadcn@latest add {{SITE}}/r/conversation.json"

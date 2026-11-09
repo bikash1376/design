@@ -1,7 +1,6 @@
 ---
 name: Origin wave
 system: iota
-source: iota
 kind: component
 more: https://dotmatrix.zzzzshawn.cloud/
 more-label: Dot Matrix

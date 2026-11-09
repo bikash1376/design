@@ -1,7 +1,6 @@
 ---
 name: Status
 system: iota
-source: quartz
 kind: component
 import: "import {Status, StatusArc, InkSlot, inkSlotVariants, statuses, statusLabels, statusRank, statusWordVariants} from '@/components/iota/ui/status'"
 install: "npx shadcn@latest add {{SITE}}/r/status.json"

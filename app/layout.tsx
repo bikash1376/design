@@ -14,7 +14,7 @@ const pixelLine = localFont({ src: "./fonts/GeistPixel-Line.woff2", variable: "-
 const pixelTriangle = localFont({ src: "./fonts/GeistPixel-Triangle.woff2", variable: "--font-pixel-triangle", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://design.useiota.space"),
   title: { default: "iOTA: give your agent taste", template: "%s · iOTA" },
   description: "A design system your coding agent installs and follows: components, tokens and written rules.",
   icons: { icon: "/iota-icon.png" },

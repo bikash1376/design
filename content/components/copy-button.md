@@ -1,7 +1,6 @@
 ---
 name: Copy button
 system: iota
-source: quartz
 kind: component
 import: "import {CopyButton} from '@/components/iota/ui/copy-button'"
 install: "npx shadcn@latest add {{SITE}}/r/copy-button.json"

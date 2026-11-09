@@ -120,3 +120,42 @@
     opacity: 0;
   }
 }
+
+/* Scrollbars: 2px, shown while scrolling, gone a second later. IotaPortalProvider sets data-scrolling. */
+@property --scrollbar-now {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+.iota *,
+.iota {
+  --scrollbar-now: transparent;
+  transition-property: --scrollbar-now;
+  transition-duration: 300ms;
+}
+.iota [data-scrolling] {
+  --scrollbar-now: var(--fill);
+  transition-duration: 80ms;
+}
+.iota ::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+.iota ::-webkit-scrollbar-track,
+.iota ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.iota ::-webkit-scrollbar-button {
+  display: none;
+}
+.iota ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-now);
+  border-radius: 9999px;
+}
+@supports not selector(::-webkit-scrollbar) {
+  .iota *,
+  .iota {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-now) transparent;
+  }
+}

@@ -1,7 +1,6 @@
 ---
 name: Panel
 system: iota
-source: quartz
 kind: component
 import: "import {Panel, PanelHeader, PanelTitle, PanelMeta, PanelAction, PanelBody, PanelFooter} from '@/components/iota/ui/panel'"
 install: "npx shadcn@latest add {{SITE}}/r/panel.json"

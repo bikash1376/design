@@ -1,7 +1,6 @@
 ---
 name: Text effects
 system: iota
-source: iota
 kind: component
 import: "import {RotatingWord} from '@/components/iota-app/work/rotating-word'"
 install: "npx shadcn@latest add {{SITE}}/r/text-effects.json"

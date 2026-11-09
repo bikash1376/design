@@ -12,7 +12,7 @@ export function HomePanel({ counts, foundation, skill }: { counts: { components:
   const reduce = useReducedMotion();
 
   const prompt = () => {
-    const site = window.location.origin;
+    const site = "https://design.useiota.space";
     return `Install the iOTA design system in this project, then follow it for all UI work.
 
 1. Run: npx skills@latest add ${site}

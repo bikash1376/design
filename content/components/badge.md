@@ -1,7 +1,6 @@
 ---
 name: Badge
 system: iota
-source: quartz
 kind: component
 import: "import {Badge, badgeVariants, CodeTag, codeStatus, codeTone, kindLabels} from '@/components/iota/ui/badge'"
 install: "npx shadcn@latest add {{SITE}}/r/badge.json"

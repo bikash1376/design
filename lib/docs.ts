@@ -2,10 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import catalogJson from "@/content/catalog.json";
 
-export type CatalogItem = { slug: string; title: string; group: string; description: string; source: "quartz" | "iota" };
+export type CatalogItem = { slug: string; title: string; group: string; description: string };
 export const catalog = catalogJson as CatalogItem[];
 
-export const SITE = (process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+export const SITE = (process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://design.useiota.space").replace(/\/$/, "");
 const CONTENT = path.join(process.cwd(), "content");
 
 export type Doc = {

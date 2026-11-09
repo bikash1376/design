@@ -1,7 +1,6 @@
 ---
 name: JSON view
 system: iota
-source: quartz
 kind: component
 import: "import {JsonView, pathOf} from '@/components/iota/ui/json-view'"
 install: "npx shadcn@latest add {{SITE}}/r/json-view.json"

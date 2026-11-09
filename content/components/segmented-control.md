@@ -1,7 +1,6 @@
 ---
 name: Segmented control
 system: iota
-source: quartz
 kind: component
 import: "import {SegmentedControl, SegmentedControlItem, segmentedVariants} from '@/components/iota/ui/segmented-control'"
 install: "npx shadcn@latest add {{SITE}}/r/segmented-control.json"

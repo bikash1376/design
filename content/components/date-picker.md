@@ -1,7 +1,6 @@
 ---
 name: Date picker
 system: iota
-source: quartz
 kind: component
 import: "import {Calendar, DatePicker, TimeField, addDays, addMonths, daysBetween, formatTime, parseTime} from '@/components/iota/ui/date-picker'"
 install: "npx shadcn@latest add {{SITE}}/r/date-picker.json"

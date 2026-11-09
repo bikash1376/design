@@ -1,7 +1,6 @@
 ---
 name: Filter bar
 system: iota
-source: quartz
 kind: component
 import: "import {FilterBar, FilterBarSearch, FilterBarChips, FilterChip, FilterToggle, FilterBarSelect, FilterBarAdd, FilterBarClear, FilterBarCount, useFilteredRows} from '@/components/iota/ui/filter-bar'"
 install: "npx shadcn@latest add {{SITE}}/r/filter-bar.json"

@@ -1,7 +1,6 @@
 ---
 name: Relative time
 system: iota
-source: quartz
 kind: component
 import: "import {RelativeTime, formatRelative, untilChange} from '@/components/iota/ui/relative-time'"
 install: "npx shadcn@latest add {{SITE}}/r/relative-time.json"

@@ -1,6 +1,6 @@
 'use client';
 
-import {createContext, createElement, Fragment, useContext, useLayoutEffect, useMemo, useRef, useState, type ReactNode} from 'react';
+import {createContext, createElement, Fragment, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode} from 'react';
 import {createPortal} from 'react-dom';
 
 type Direction = 'ltr' | 'rtl';
@@ -30,8 +30,24 @@ function inertOutside(keep: HTMLElement) {
   return () => { for (const el of set) el.inert = false; };
 }
 
+// Marks whatever is scrolling, so its scrollbar shows now and fades a second after it stops.
+function watchScrolling() {
+  const timers = new WeakMap<Element, ReturnType<typeof setTimeout>>();
+  const onScroll = (event: Event) => {
+    const target = event.target;
+    const el = target instanceof Element ? target : document.documentElement;
+    el.setAttribute('data-scrolling', '');
+    clearTimeout(timers.get(el));
+    timers.set(el, setTimeout(() => el.removeAttribute('data-scrolling'), 1000));
+  };
+  window.addEventListener('scroll', onScroll, {capture: true, passive: true});
+  return () => window.removeEventListener('scroll', onScroll, {capture: true});
+}
+
 export function IotaPortalProvider({children, dir}: {children: ReactNode; dir?: Direction}) {
   const parent = useContext(IotaPortalContext);
+  const isRoot = !parent;
+  useEffect(() => (isRoot ? watchScrolling() : undefined), [isRoot]);
   const [container, setContainer] = useState<HTMLElement | null>(null);
   const count = useRef(0);
   const undo = useRef<(() => void) | null>(null);

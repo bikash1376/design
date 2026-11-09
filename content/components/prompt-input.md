@@ -1,7 +1,6 @@
 ---
 name: Prompt input
 system: iota
-source: quartz
 kind: component
 import: "import {PromptInput, PromptInputModel, PromptAttachment, PromptQueue, PromptInputMic, serializePrompt, acceptsFile} from '@/components/iota/ai/prompt-input'"
 install: "npx shadcn@latest add {{SITE}}/r/prompt-input.json"

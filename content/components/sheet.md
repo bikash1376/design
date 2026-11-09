@@ -1,7 +1,6 @@
 ---
 name: Sheet
 system: iota
-source: quartz
 kind: component
 import: "import {Sheet, SheetTrigger, SheetClose, SheetPortal, SheetOverlay, SheetContent, SheetHeader, SheetBody, SheetFooter, SheetTitle, SheetDescription, SheetAction, SheetSection, SheetField, useSheet, useScrollFade, fadeClass} from '@/components/iota/ui/sheet'"
 install: "npx shadcn@latest add {{SITE}}/r/sheet.json"

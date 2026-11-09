@@ -1,7 +1,6 @@
 ---
 name: Data list
 system: iota
-source: quartz
 kind: component
 import: "import {DataList, DataListItem, DataListLabel, DataListValue, DataListEmpty, dataListVariants} from '@/components/iota/ui/data-list'"
 install: "npx shadcn@latest add {{SITE}}/r/data-list.json"
