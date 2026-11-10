@@ -186,7 +186,19 @@ const Node = memo(function Node({
   );
 });
 
-export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: boolean }) {
+// `onSelect` keeps selection local instead of routing (the /embed page, framed elsewhere);
+// `embed` also drops the notch and lets a plain wheel scroll the page that frames it.
+export function Canvas({
+  selected,
+  dimAll,
+  onSelect,
+  embed = false,
+}: {
+  selected: string | null;
+  dimAll: boolean;
+  onSelect?: (doc: string | null) => void;
+  embed?: boolean;
+}) {
   const router = useRouter();
   const reduce = useReducedMotion();
   const viewport = useRef<HTMLDivElement>(null);
@@ -284,8 +296,10 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     const el = viewport.current;
     if (!el) return;
     size.current = { w: el.clientWidth, h: el.clientHeight };
-    el.style.clipPath = notchedInner(el.clientWidth, el.clientHeight);
+    if (!embed) {
+      el.style.clipPath = notchedInner(el.clientWidth, el.clientHeight);
       if (shadowShape.current) shadowShape.current.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
+    }
     const node = selectedKey ? NODES.find((n) => n.slug === selectedKey) : null;
     if (node) centerOn(node, true);
     else moveTo(el.clientWidth / 2, el.clientHeight / 2, 1, true);
@@ -296,8 +310,10 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     const t = setTimeout(() => setEnteredDone(true), 1400);
     const ro = new ResizeObserver(() => {
       size.current = { w: el.clientWidth, h: el.clientHeight };
-      el.style.clipPath = notchedInner(el.clientWidth, el.clientHeight);
-      if (shadowShape.current) shadowShape.current.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
+      if (!embed) {
+        el.style.clipPath = notchedInner(el.clientWidth, el.clientHeight);
+        if (shadowShape.current) shadowShape.current.style.clipPath = notchedOutline(el.clientWidth, el.clientHeight);
+      }
       refreshLive();
     });
     ro.observe(el);
@@ -381,7 +397,10 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     if (!d.moved) {
       // A plain click on empty canvas goes home.
       const target = e.target as HTMLElement;
-      if (!target.closest(".canvas-node") && (selected || dimAll)) router.push("/");
+      if (!target.closest(".canvas-node") && (selected || dimAll)) {
+        if (onSelect) onSelect(null);
+        else router.push("/");
+      }
       return;
     }
     const first = d.samples[0];
@@ -412,6 +431,8 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     const onWheel = (e: WheelEvent) => {
       const target = e.target as HTMLElement;
       if (target.closest("[data-live]") && !(e.ctrlKey || e.metaKey)) return;
+      // Framed in another page, a plain wheel scrolls that page; drag pans, ctrl+wheel zooms.
+      if (embed && !(e.ctrlKey || e.metaKey)) return;
       e.preventDefault();
       stop();
       const r = el.getBoundingClientRect();
@@ -425,7 +446,7 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
-  }, [limits, x, y, zoom, zoomAt]);
+  }, [limits, x, y, zoom, zoomAt, embed]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (!viewport.current?.contains(e.target as Node) || (e.target as HTMLElement).closest("[data-live]")) return;
@@ -446,9 +467,10 @@ export function Canvas({ selected, dimAll }: { selected: string | null; dimAll: 
         return;
       }
       setPicked(slug);
-      router.push(`/components/${docOf(slug)}`);
+      if (onSelect) onSelect(docOf(slug));
+      else router.push(`/components/${docOf(slug)}`);
     },
-    [router],
+    [router, onSelect],
   );
 
   const onFocusNode = useCallback((node: Placed) => centerOn(node), [centerOn]);
